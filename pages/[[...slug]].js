@@ -39,7 +39,9 @@ async function fulfillSectionQueries(page,internalLinks) {
         if(_type == "links"){
           const {link} = section?.links ?? null;
           const selectedLink = internalLinks.find(internalLink => internalLink._id == link._ref);
-          section.links.internalLink = selectedLink.slug.current;
+          if(selectedLink){
+            section.links.internalLink = selectedLink.slug.current;
+          }          
         }        
       }
 
