@@ -1,20 +1,39 @@
 {
-  "name": "sparrow-noble-2",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "12.3.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "eslint": "8.23.1",
-    "eslint-config-next": "12.3.1"
-  }
+	"name": "web",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@fevernova90/next-sanity-image": "^0.0.4",
+		"@portabletext/react": "^1.0.6",
+		"@sanity/client": "^3.3.2",
+		"@sanity/image-url": "^1.0.1",
+		"@sanity/webhook": "^2.0.0",
+		"@hookform/resolvers": "^2.9.7",
+		"@svgr/webpack": "^6.2.1",
+		"clsx": "^1.2.0",
+		"groq": "^2.29.3",
+		"lodash-es": "^4.17.21",
+		"next": "12.2.5",
+		"next-seo": "^5.4.0",
+		"prop-types": "^15.8.1",
+		"react-hook-form": "^7.34.0",
+		"nope-validator": "^1.0.4",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"sass": "^1.54.5",
+		"swiper": "^8.3.2"
+	},
+	"devDependencies": {
+		"@tailwindcss/aspect-ratio": "^0.4.0",
+		"@tailwindcss/typography": "^0.5.2",
+		"autoprefixer": "^10.4.8",
+		"postcss": "^8.4.16",
+		"tailwindcss": "^3.1.8"
+	}
 }
