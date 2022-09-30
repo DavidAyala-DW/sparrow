@@ -31,7 +31,7 @@ export default function ImageWithText(props) {
   }
 
   const aspectRatioDesktop = {
-    "landscape": "lg:aspect-w-[1.3394] 3xl:aspect-w-[1.841]",
+    "landscape": "lg:aspect-w-[1.382] 3xl:aspect-w-[1.841]",
     "portrait": "lg:aspect-w-[1.0652] 3xl:aspect-w-[1.431]"
   }
 
@@ -46,12 +46,12 @@ export default function ImageWithText(props) {
   const contentSize = {
 
     image: {
-      "landscape" : "lg:w-[48.529%] 3xl:w-[49.239%]",
+      "landscape" : "lg:w-[50.8088%] 3xl:w-[49.239%]",
       "portrait" : "lg:w-[49.191%] 3xl:w-[48.8586%]"
     },
 
     text: {
-      "landscape" : "lg:w-[51.471%] 3xl:w-[50.761%]",
+      "landscape" : "lg:w-[49.1912%] 3xl:w-[50.761%]",
       "portrait" : "lg:w-[50.809%] 3xl:w-[51.1414%]"
     }
     

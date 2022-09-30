@@ -50,7 +50,7 @@ export default function Menus(props) {
                       {title}
                     </h2>
       
-                    <div className="flex items-center space-x-6">
+                    <div className="flex flex-col md:flex-row md:items-center md:flex-wrap max-w-[500px]">
                       
                       {
 
@@ -60,7 +60,7 @@ export default function Menus(props) {
 
                           return (
                             <Link href={`/menus/${slug?.current}?menu=${slugMenu?.current}`} passHref>
-                              <a className="opacity-80 tracking-[.05em] uppercase text-lg leading-[25px] font-light underline">
+                              <a className="opacity-80 tracking-[.05em] uppercase text-lg leading-[25px] font-light underline pr-6 pb-4">
                                 {title}
                               </a>
                             </Link>

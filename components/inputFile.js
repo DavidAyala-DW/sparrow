@@ -15,9 +15,9 @@ export default function File({className}) {
         accept=".txt,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
       />
 
-      <label htmlFor="file" className="outline-none bg-transparent border-[.5px] border-[#4A3419]
+      <label htmlFor="file" className="outline-none bg-transparent border-[.5px] border-[#EAEBEF]
         w-full block py-[30px] vw:py-[1.5625vw] px-5 vw:px-[1.0416vw] opacity-80 text-base md:text-[20px] vw:text-[1.0416vw] leading-[1.5] font-light
-        placeholder:text-[#4A3419] resize-none cursor-pointer"
+        placeholder:text-[#EAEBEF] resize-none cursor-pointer"
       >
 
         <p className="text-base md:text-[20px] vw:text-[1.0416vw] leading-[1.5] opacity-80 font-light underline mb-1 vw:mb-[.208vw]">

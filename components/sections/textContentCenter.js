@@ -12,6 +12,8 @@ export default function TextContentCenter(props) {
     descriptionContent
   } = props;
 
+  console.log(props);
+
   return (
 
     <section className='px-4 md:px-0 md:max-w-[94.4%] w-full mx-auto flex flex-col'>
