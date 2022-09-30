@@ -20,7 +20,8 @@ function Layout(props) {
       soundCloudHandle,
       reservationsButton
     },
-    menus
+    menus,
+    locations
   } = props
 
   const globalMenus = [
@@ -66,9 +67,17 @@ function Layout(props) {
     
     menuItem.forEach(menu => {
 
-      if(!menu) return;
+      let isLocation = false;
 
-      const {slug} = menus.find(item => item._id == menu?.link?._ref) ?? false;
+      if(!menu) return;
+      
+      let {slug} = menus.find(item => item._id == menu?.link?._ref) ?? false;
+
+      if(!slug){
+        const {slug:slugLocation} = locations.find(item => item._id == menu?.link?._ref) ?? false;
+        slug = slugLocation
+        slug ? isLocation = true : null;
+      }
 
       if(!slug) {
 
@@ -81,7 +90,13 @@ function Layout(props) {
 
       }
 
-      menu.link.url = slug.current != "/" ? `/${slug.current}`: "/"; 
+      if(!isLocation){
+        menu.link.url = slug.current != "/" ? `/${slug.current}`: "/"; 
+      }else{
+        menu.link.url = slug.current != "/" ? `/locations/${slug.current}`: "/"; 
+      }
+      
+
       if (menu.externalLink) {
         menu.link.url = menu.externalLink;
       }
