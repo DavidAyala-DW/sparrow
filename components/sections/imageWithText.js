@@ -90,12 +90,12 @@ export default function ImageWithText(props) {
       }>        
 
         <h2
-        className="font-light capitalize text-[32px] vw:text-[1.666vw] leading-[44px] vw:leading-[1.375] mb-6 vw:mb-[1.25vw]"
+        className="font-light capitalize text-[32px] vw:text-[1.666vw] leading-[44px] vw:leading-[1.375] mb-[18px] vw:mb-[.9375vw]"
         >
           {title}
         </h2>
 
-        <div className="opacity-[.85] text-base vw:text-[.8333vw] leading-[1.5] font-normal md:max-w-[500px] lg:max-w-[507px] vw:max-w-[26.40625vw] w-full">
+        <div className="opacity-[.8] text-base vw:text-[.8333vw] leading-[1.5] font-normal md:max-w-[500px] lg:max-w-[507px] vw:max-w-[26.40625vw] w-full">
           <SimpleBlockContent blocks={description} />
         </div>
 
@@ -149,7 +149,7 @@ export default function ImageWithText(props) {
 
         {
           menus && (
-            <div className="flex flex-col space-y-6 md:space-y-0 md:flex-row mt-10 md:items-center md:space-x-6 vw:space-x-[1.25vw]">
+            <div className="flex flex-col space-y-6 md:space-y-0 md:flex-row md:flex-wrap mt-10 md:items-center md:max-w-[70%]">
               {
                 menus.map(menu => {
 
@@ -157,7 +157,7 @@ export default function ImageWithText(props) {
 
                   return(
                     <Link key={_key} href={`/menus/${props.slug}?menu=${current}`} passHref>
-                      <a className="block font-light text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[.05em] underline uppercase opacity-80">
+                      <a className="block font-light text-lg vw:text-[.9375vw] md:pb-[11px] vw:pb-[.5729vw] md:pr-6 vw:pr-[1.25vw] leading-[25px] vw:leading-[1.3888] tracking-[.05em] underline uppercase opacity-80">
                         {title}
                       </a>
                     </Link>

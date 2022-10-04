@@ -15,7 +15,7 @@ export default function Footer(props) {
 
     <footer className="3xl:justify-between px-4 md:px-0 pb-[22px] md:pb-[36px] md2:pb-[50px] vw:pb-[2.604vw] md:max-w-[94.4%] w-full md:mx-auto flex flex-col md2:flex-row items-stretch">
 
-      <div className="mb-[42px] md2:mb-0 md2:mr-[4.558%] w-max">
+      <div className="mb-[42px] md2:mb-0 md2:mr-[13.333%] w-max">
 
         <Link href="/" passHref>
 
@@ -35,9 +35,9 @@ export default function Footer(props) {
 
       <div className="flex flex-col lg:flex-row lg:items-stretch w-full 3xl:max-w-max">
 
-        <div className="flex flex-col mb-[86px] md2:mb-0 md2:space-y-[110px] vw:space-y-[5.729vw] justify-between md2:mr-[14.7%] 3xl:mr-0 3xl:pr-[10.8333vw] 3xl:w-[calc(19.6875vw_+_10.833vw)] w-full">
+        <div className="flex flex-col mb-[86px] md2:mb-0 md2:space-y-[110px] vw:space-y-[5.729vw] justify-between md2:mr-[6.7%] 3xl:mr-0 3xl:pr-[10.8333vw] 3xl:w-[calc(19.6875vw_+_10.833vw)] w-full">
 
-          <div className="grid md:max-w-[67.5%] md2:max-w-full grid-cols-[1fr,2fr,1fr] md:grid-cols-[1fr,1.5fr,1fr] gap-x-[17px] md:gap-x-16 lg:gap-x-[42px] vw:gap-x-[2.1875vw] gap-y-8 vw:gap-y-[1.6666vw]">
+          <div className="grid md:max-w-[67.5%] md2:max-w-[78.64%] grid-cols-[1fr,2fr,1fr] md:grid-cols-[1fr,1.5fr,1fr] gap-x-[17px] md:gap-x-16 lg:gap-x-[42px] vw:gap-x-[2.1875vw] gap-y-8 vw:gap-y-[1.6666vw]">
 
             {footerNav && footerNav.map( (item, i) => {
 
@@ -45,7 +45,7 @@ export default function Footer(props) {
 
               return (
                 <Link href={link?.url} passHref key={i}>
-                  <a className={`text-[18px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`} >
+                  <a className={`text-[18px] w-max vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`} >
                     {title}
                   </a>
                 </Link>
@@ -59,7 +59,7 @@ export default function Footer(props) {
 
             {privacyPolicyHandle && (
               <Link href={privacyPolicyHandle?.link?.url} passHref>
-                <a className={`text-[18px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light md:min-w-[122px]`} >
+                <a className={`text-[18px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light md:min-w-[107px]`} >
                   {privacyPolicyHandle?.title}
                 </a>
               </Link>
@@ -81,7 +81,7 @@ export default function Footer(props) {
 
           <div className="flex flex-col space-y-6 md2:space-y-8 vw:space-y-[1.666vw]">
 
-            <h3 className="block text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light">
+            <h3 className="block font-brandom text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light">
               Newsletter
             </h3>  
 
@@ -91,7 +91,7 @@ export default function Footer(props) {
 
                 <input
                   className="text-base md2:text-lg vw:text-[.9375vw] bg-transparent outline-none w-full
-                  placeholder:text-[rgba(74,_52,_25,_1)] md:placeholder:text-[rgba(234,_235,_239,_0.5)] leading-[1.5] font-light opacity-80"
+                  placeholder:text-[rgba(234,_235,_239,1)] md:placeholder:text-[rgba(234,_235,_239,_0.5)] leading-[1.5] font-light opacity-80"
                   type="email"
                   name="email"
                   id="email"

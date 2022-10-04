@@ -56,11 +56,11 @@ export default function Event({event}) {
             {title}
           </h3>
 
-          <p className="font-normal text-base vw:text-[.83333vw] leading-[1.5] opacity-[.85] mb-5 vw:mb-[1.0416vw]">
+          <p className="opacity-80 font-normal text-base vw:text-[.83333vw] leading-[1.5] mb-5 vw:mb-[1.0416vw]">
             {showDate && handleFormatDate(date)}
           </p>
 
-          <div className="font-normal text-base vw:text-[.8333vw] leading-[1.5] opacity-[.85] lg:max-w-[46.3vw]">
+          <div className="font-normal text-base vw:text-[.8333vw] leading-[1.5] opacity-80 lg:max-w-[46.3vw]">
 
             {
               (description && !description2) && (
