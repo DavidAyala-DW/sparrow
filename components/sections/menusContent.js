@@ -10,8 +10,13 @@ export default function MenusContent(props) {
   const [activeMenu, setActiveMenu] = useState();
 
   useEffect(() => {
+    
+    let {menu} = router.query;
 
-    const {menu} = router.query;
+    if(typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      menu = url?.searchParams?.get("menu");
+    } 
 
     if(!menu){
       setActiveMenu(menus[0]);
@@ -30,8 +35,6 @@ export default function MenusContent(props) {
     large: "max-w-[424px] vw:max-w-[22.083vw]"
   }
   
-
-
   return (
 
     <>

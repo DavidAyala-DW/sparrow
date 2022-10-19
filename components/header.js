@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Fragment } from "react";
 import Image from "next/image";
 import { useRouter } from 'next/router'
 import Link from "next/link";
@@ -6,7 +6,8 @@ import SanityImage from './sanity-image'
 
 export default function Header(props) {
 
-  const router = useRouter()
+  const router = useRouter();
+  const menuButton = useRef();
 
   const {
     mainNav,
@@ -14,7 +15,10 @@ export default function Header(props) {
     secondHeaderNav,
     facebookHandle,
     instagramHandle,
+    spotifyHandle,
+    soundCloudHandle,
     reservationsButton,
+    locations,
     stickyHeader
   } = props;
   
@@ -22,8 +26,9 @@ export default function Header(props) {
   const [activeModal, setActiveModal] = useState(false);
   const [activeMenuImage, setActiveMenuImage] = useState();
   const [existHero, setExistHero] = useState(false);
-  const [heroVisible, setHeroVisible] = useState(null)
-  const [entryObserver, setEntryObserver] = useState(false)
+  const [heroVisible, setHeroVisible] = useState(null);
+  const [entryObserver, setEntryObserver] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   function handleClick(){
     const updatedModalValue = !openModal;
@@ -200,30 +205,116 @@ export default function Header(props) {
         className={`md2:pl-[2.8%] w-full h-[calc(100%-80px)] md2:h-full max-w-full md2:max-w-[73.6%] 3xl:max-w-[66.666%] flex flex-col items-center
         md2:items-start justify-between pt-[101px] md2:pt-[108px] vw:pt-[5.625vw] pb-6 vw:pb-[1.25vw]`}>
 
-          <div className="w-full flex flex-col md2:flex-row space-y-2 md2:space-y-0 items-start md2:space-x-16 vw:space-x-[3.333vw]">
+          <div className="w-full flex flex-col md2:flex-row space-y-2 md2:space-y-0 items-start md2:space-x-[150px] vw:space-x-[3.333vw]">
 
-            <div className="w-full md2:w-max flex flex-col items-center md2:items-start">
+            <div className="w-full md2:w-4/5 flex flex-col items-center md2:items-start">
 
-              { mainNav.map((item,index) => {
+              { mainNav && mainNav?.map((item,index) => {
 
-                if(index < 4){
+                  if(index >= 4) return;
 
-                  const {title, link, image} = item;
+                  const {title, link, image, _key} = item;
 
                   return (
-                    <Link href={link.url} passHref key={index} >
-                      <a
-                        onMouseLeave={handleMouseDown}
-                        onMouseEnter={() => handleMouseOver(image)}
-                        onClick={handleClick}
-                        className="block font-light tracking-[-.04em] text-[32px] md2:text-[55px] vw:text-[2.864vw] leading-[44px] md2:leading-[75px] vw:leading-[1.36]"
-                      >
-                        {title}
-                      </a>
-                    </Link>
+
+                    <div key={_key}>
+
+                      {
+                        title != "Menus" ? (
+
+                          <Link href={link.url} passHref>
+                            <a
+                              onMouseLeave={handleMouseDown}
+                              onMouseEnter={() => handleMouseOver(image)}
+                              onClick={handleClick}
+                              className="block font-light tracking-[-.04em] text-[32px] md2:text-[55px] vw:text-[2.864vw] leading-[44px] md2:leading-[75px] vw:leading-[1.36]"
+                            >
+                              {title}
+                            </a>
+                          </Link>
+
+                        ) : (
+
+                          <div className="flex flex-col items-center md2:items-start">
+
+                            <div className="flex items-center w-full space-x-5 max-w-max mx-auto md2:max-w-full">
+
+                              <Link href={link.url} passHref>
+                                <a
+                                  onMouseLeave={handleMouseDown}
+                                  onMouseEnter={() => handleMouseOver(image)}
+                                  onClick={handleClick}
+                                  className="block font-light tracking-[-.04em] text-[32px] md2:text-[55px] vw:text-[2.864vw] leading-[44px] md2:leading-[75px] vw:leading-[1.36]"
+                                >
+                                  {title}
+                                </a>
+                              </Link>
+
+                              <div onClick={ () => {setIsMenuOpen(!isMenuOpen)} }  ref={menuButton} className={`cursor-pointer relative transition-transform w-5 h-3 md2:w-7 md2:h-6 vw:w-[1.458vw] vw:h-[.8333vw] ${isMenuOpen? "rotate-180" : "rotate-0" }`}>
+                                <Image
+                                  src="/images/Down.svg"
+                                  alt="Down Icon"
+                                  layout={"fill"}                                  
+                                />
+                              </div>
+
+                            </div>
+
+                            <div className={`flex-col items-center md2:items-start ${isMenuOpen ? "flex" : "hidden" }`}>
+
+                              {
+                                locations && (
+                                  [...locations].reverse().map((location, i) => {
+
+                                    const {title, slug:{current}, comming_soon, _id} = location;
+                                    
+
+                                    return(
+
+                                      <div key={_id}>
+
+                                        {
+                                          !comming_soon && (
+                                            <Link href={`/menus/${current}?menu=dinner-menu`} passHref>
+                                              <a
+                                              className={`
+                                                text-[#EAEBEF] text-lg md2:text-[24px] leading-[1.6] tracking-[-.02em] font-normal font-brandom
+                                              ${comming_soon ? "opacity-50 !cursor-not-allowed" : "opacity-90"} `}>
+                                                {title}
+                                              </a>
+                                            </Link>
+                                          )
+                                        }
+                  
+                                        {
+                                          comming_soon && (
+                                            <div                                           
+                                            className={`
+                                            text-[#EAEBEF] text-lg md2:text-[24px] leading-[1.6] tracking-[-.02em] font-normal font-brandom
+                                            ${comming_soon ? "opacity-50 !cursor-not-allowed" : "opacity-90"} `}>
+                                              {title + "(Coming Soon)" }
+                                            </div>
+                                          )
+                                        }
+                  
+                                      </div>
+                                    )
+
+
+                                  })
+                                )
+                              }
+                            </div>
+
+                          </div>
+
+                        )
+                      }
+
+                    </div>
                   )
 
-                }
+                
 
               })}
 
@@ -235,10 +326,10 @@ export default function Header(props) {
 
                 if(index >= 4){
 
-                  const {title, link, image} = item;
+                  const {title, link, image, _key} = item;
 
                   return (
-                    <Link href={link.url} passHref key={index} >
+                    <Link href={link.url} passHref key={_key} >
                       <a
                         onMouseLeave={handleMouseDown}
                         onMouseEnter={() => handleMouseOver(image)}
@@ -273,14 +364,14 @@ export default function Header(props) {
 
                 {secondHeaderNav && secondHeaderNav.map( (item,i)  => {
 
-                  const {title,link} = item;
+                  const {title,link, _key} = item;
                   if(!link || !title) return;
 
                   return (
 
                     <Link
                       href={link?.url}
-                      passHref key={i}
+                      passHref key={_key}
                     >
                       <a
                         onClick={handleClick}
@@ -318,6 +409,30 @@ export default function Header(props) {
 
               <Image
                 src={"/images/instagram.svg"}
+                alt="instagram logo"
+                layout="responsive"
+                width={32}
+                height={32}
+              />
+
+            </a>
+
+            <a onClick={handleClick} href={spotifyHandle} className="block w-8 vw:w-[1.666vw]">
+
+              <Image
+                src={"/images/spotify.svg"}
+                alt="instagram logo"
+                layout="responsive"
+                width={32}
+                height={32}
+              />
+
+            </a>
+
+            <a onClick={handleClick} href={soundCloudHandle} className="block w-8 vw:w-[1.666vw]">
+
+              <Image
+                src={"/images/soundCloud.svg"}
                 alt="instagram logo"
                 layout="responsive"
                 width={32}

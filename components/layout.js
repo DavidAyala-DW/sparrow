@@ -49,8 +49,12 @@ function Layout(props) {
       }
 
       menuItem.link.url = "/";
-      return;
 
+      if (menu.externalLink) {
+        menu.link.url = menu.externalLink;
+      }
+
+      return;
     }
 
     menuItem.link.url = slug.current != "/" ? `/${slug.current}`: "/"; 
@@ -86,6 +90,9 @@ function Layout(props) {
         }
 
         menu.link.url = "/";
+        if (menu.externalLink) {
+          menu.link.url = menu.externalLink;
+        }
         return;
 
       }
@@ -128,6 +135,7 @@ function Layout(props) {
           soundCloudHandle,
           reservationsButton,
           menus,
+          locations,
           stickyHeader
         }}/>
 

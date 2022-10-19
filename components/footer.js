@@ -6,7 +6,9 @@ export default function Footer(props) {
   const {
     facebookHandle,
     instagramHandle,
-    privacyPolicyHandle,
+    spotifyHandle,
+    soundCloudHandle,
+    privacyPolicyHandle,    
     cookiesPreferencesHandle,
     footerNav,
   } = props;
@@ -134,6 +136,30 @@ export default function Footer(props) {
 
                 <Image
                   src={"/images/instagram.svg"}
+                  alt="instagram logo"
+                  layout="responsive"
+                  width={32}
+                  height={32}
+                />
+
+              </a>
+
+              <a  href={spotifyHandle} className="block w-8 vw:w-[1.666vw]">
+
+                <Image
+                  src={"/images/spotify.svg"}
+                  alt="instagram logo"
+                  layout="responsive"
+                  width={32}
+                  height={32}
+                />
+
+              </a>
+
+              <a  href={soundCloudHandle} className="block w-8 vw:w-[1.666vw]">
+
+                <Image
+                  src={"/images/soundCloud.svg"}
                   alt="instagram logo"
                   layout="responsive"
                   width={32}

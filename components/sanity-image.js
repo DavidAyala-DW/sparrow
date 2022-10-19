@@ -5,6 +5,7 @@ import clsx from 'clsx'
 import client from '@/lib/sanity-client'
 
 export default function SanityImage(props) {
+  
   const { src: image, quality = 85, className, ...rest } = props
   const imageProps = useNextSanityImage(client, image)
 

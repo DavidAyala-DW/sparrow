@@ -107,7 +107,7 @@ async function getSiteConfig(){
 }
 
 async function getLocations(){
-  const request = await client.fetch(groq`*[_type == "locationsSparrow"] {_id, slug {current}} `);
+  const request = await client.fetch(groq`*[_type == "locationsSparrow"] {_id, title, comming_soon, menus, slug {current}} `);
   return request;
 }
 

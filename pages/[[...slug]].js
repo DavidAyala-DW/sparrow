@@ -33,6 +33,7 @@ async function fulfillSectionQueries(page,internalLinks) {
   }
 
   const sectionsWithQueryData = await Promise.all(
+
     page.content.map(async (section) => {
 
       if(section?.links){
@@ -65,6 +66,10 @@ async function fulfillSectionQueries(page,internalLinks) {
           const queryData = await client.fetch(groq`*[_type == "locationsSparrow" && _id == "${section.locations._ref}" ][0]{...}`)
           section.locations.query = queryData;
         }
+      }
+
+      if(section._type === 'imageWithText' && section?.show_locations){
+        section.locations = page?.locations;
       }
 
        //Detectar _type-> el nombre de un documento y para cada documento se tendra un objeto desde el server con query groq, revisar que solo se ejecute una vez
@@ -109,7 +114,7 @@ async function getSiteConfig(){
 }
 
 async function getLocations(){
-  const request = await client.fetch(groq`*[_type == "locationsSparrow"] {_id, slug {current}} `);
+  const request = await client.fetch(groq`*[_type == "locationsSparrow"] {_id, title, comming_soon, menus, slug {current}} `);
   return request;
 }
 
@@ -130,9 +135,12 @@ async function getPageSections(slug){
 export const getStaticProps = async ({ params }) => {
 
   const slug = slugParamToPath(params?.slug)
-  let [data, siteSettings, menus, locations] = await Promise.all([getPageSections(slug), getSiteConfig(), getMenus(), getLocations()])
+  let [data, siteSettings, menus, locations] = await Promise.all([getPageSections(slug), getSiteConfig(), getMenus(), getLocations()])  
+  data.slug = slug;
+  data.locations = locations;
   data = await fulfillSectionQueries(data,menus)
   data.slug = slug;
+  
 
   return {
     props:{
