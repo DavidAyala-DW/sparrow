@@ -50,8 +50,8 @@ function Layout(props) {
 
       menuItem.link.url = "/";
 
-      if (menu.externalLink) {
-        menu.link.url = menu.externalLink;
+      if (menuItem.externalLink) {
+        menuItem.link.url = menuItem.externalLink;
       }
 
       return;
