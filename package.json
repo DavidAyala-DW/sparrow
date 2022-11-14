@@ -20,6 +20,7 @@
 		"groq": "^2.29.3",
 		"lodash-es": "^4.17.21",
 		"next": "12.2.5",
+		"next-sanity": "^0.8.2",
 		"next-seo": "^5.4.0",
 		"nope-validator": "^1.0.4",
 		"prop-types": "^15.8.1",

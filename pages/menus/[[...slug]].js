@@ -1,29 +1,61 @@
 import groq from 'groq'
 import { NextSeo } from 'next-seo'
 import client from '@/lib/sanity-client'
+import dynamic from 'next/dynamic'
 import Layout from '@/components/layout'
 import RenderSections from '@/components/render-sections'
 import { getSlugVariations, slugParamToPath } from '@/lib/urls'
+import { getClient } from '@/lib/sanity.server'
+import { usePreviewSubscription } from '@/lib/sanity'
 import {locationQuery} from "@/lib/queries"
 
-export default function Page({props}) {
+const ExitPreviewButton = dynamic(() =>
+  import('@/components/exit-preview-button')
+)
+
+
+export default function Page(props) {
   
-  const {
-    title = 'Missing title',
-    content = [],
-    stickyHeader,
-    siteSettings,  
-    menus,
-    locations
-  } = props
+  const { preview, data, siteSettings, menus, locations } = props;
+  const {page: {title}} = data;
+  const stickyHeader = false;
+  const { data: previewData } = usePreviewSubscription(data?.query, {
+    params: data?.queryParams ?? {},
+    // The hook will return this on first render
+    // This is why it's important to fetch *draft* content server-side!
+    initialData: data?.page,
+    // The passed-down preview context determines whether this function does anything
+    enabled: preview,
+  })
+
+  const page = filterDataToSingleItem(previewData, preview)
+  page.content = [...page.menuPageContent];
+
   return (    
     <Layout menus={menus} locations={locations} siteSettings={siteSettings} stickyHeader={stickyHeader}>
       <NextSeo
         title={title}
       />
-      {content && <RenderSections sections={content} />}
+      {page?.content && <RenderSections sections={page?.content} />}
+      {preview && <ExitPreviewButton />}
     </Layout>
   )
+}
+
+function filterDataToSingleItem(data, preview) {
+  if (!Array.isArray(data)) {
+    return data
+  }
+
+  if (data.length === 1) {
+    return data[0]
+  }
+
+  if (preview) {
+    return data.find((item) => item._id.startsWith(`drafts.`)) || data[0]
+  }
+
+  return data[0]
 }
 
 async function fulfillSectionQueries(page, slug) {
@@ -136,15 +168,36 @@ async function getPageSections(slug){
   return request
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params, preview = false }) => {
 
-  const slug = slugParamToPath(params?.slug)
-  let [data, siteSettings, menus, locations] = await Promise.all([getPageSections(slug), getSiteConfig(), getMenus(), getLocations()])
-  data = await fulfillSectionQueries(data, slug)
+  const slug = slugParamToPath(params?.slug);
+  const client = getClient(preview)
+  const query =  groq`
+  *[_type == "locationsSparrow" && slug.current in $possibleSlugs][0]{
+    _id,
+    title,
+    menuPageContent
+  }
+  `
+  const queryParams = { possibleSlugs: getSlugVariations(slug) }
+  let data = await client.fetch(query, queryParams);
+  let [siteSettings, menus, locations] = await Promise.all([getSiteConfig(), getMenus(), getLocations()])
+  let page = filterDataToSingleItem(data, preview)
+  page.content = [...page.menuPageContent];
+  page.slug = slug;
+  page.locations = locations;
+  page = await fulfillSectionQueries(data, slug, menus)
+  page.query = query;
+  page.queryParams = queryParams;
 
   return {
     props:{
-      props: { ...data, siteSettings, menus, locations } || {},
+      data: {page, query, queryParams},
+      siteSettings,
+      menus,
+      locations,
+      menus,
+      preview
     }
   }
   
