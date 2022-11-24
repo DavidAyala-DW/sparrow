@@ -11,6 +11,7 @@ export default function Footer(props) {
     privacyPolicyHandle,    
     cookiesPreferencesHandle,
     footerNav,
+    footer_noble_link
   } = props;
   
   return (
@@ -116,7 +117,7 @@ export default function Footer(props) {
 
           </div>
 
-          <div className="flex flex-col space-y-12 md2:space-y-0 md2:flex-row md2:items-center justify-between">
+          <div className="flex flex-col space-y-12 md2:space-y-0 md2:flex-row md2:flex-wrap md2:gap-5 md2:items-center justify-between">
 
             <div className="flex items-center space-x-6 vw:space-x-[1.25vw]">
 
@@ -192,9 +193,21 @@ export default function Footer(props) {
 
             </div>
 
-            <p className="block opacity-80 text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light font-avenir">
-              ©2022 Sparrow
-            </p>
+            {
+              footer_noble_link && (
+                <Link passHref href={footer_noble_link} >
+                  <a className="block w-[145px] !mb-[59px] md:!mb-0 vw:w-[7.55vw]">
+                    <Image
+                      src="/images/noble.svg"
+                      alt="Next"
+                      width={145}
+                      height={24}
+                      layout="responsive"
+                    />  
+                  </a>
+                </Link>
+              )
+            }
 
           </div>
 
