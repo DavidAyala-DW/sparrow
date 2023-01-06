@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Header from './header'
 import Head from "next/head"
 import Footer from './footer'
@@ -19,7 +20,8 @@ function Layout(props) {
       spotifyHandle,
       soundCloudHandle,
       reservationsButton,
-      footer_noble_link
+      footer_noble_link,
+      newsletter_text
     },
     menus,
     locations
@@ -153,8 +155,23 @@ function Layout(props) {
           privacyPolicyHandle,
           cookiesPreferencesHandle,
           footerNav,
-          footer_noble_link
+          footer_noble_link,
+          newsletter_text
         }}/>
+
+        {(reservationsButton && (
+
+          <Link passHref href={reservationsButton?.link?.url}>
+            <a                      
+              className="fixed bottom-0 inset-x-0 w-full md:hidden z-[5] bg-body border-t border-[#EAEBEF] py-[13px]"
+            >
+              <p className="text-center text-[#BDBEC1] opacity-80  uppercase tracking-[0.05em] text-base font-light leading-[22px] w-full !font-brandom">
+                {reservationsButton?.title}
+              </p>              
+            </a>
+          </Link>
+
+        ))}
 
       </div>
     </>
