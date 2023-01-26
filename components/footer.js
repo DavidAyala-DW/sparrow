@@ -63,7 +63,7 @@ export default function Footer(props) {
 
             {privacyPolicyHandle && (
               <Link href={privacyPolicyHandle?.link?.url} passHref>
-                <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light md:min-w-[107px]`} >
+                <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`} >
                   {privacyPolicyHandle?.title}
                 </a>
               </Link>
@@ -71,13 +71,13 @@ export default function Footer(props) {
 
 
             <Link href="/accessibility-statement" passHref>  
-              <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light md:min-w-[107px]`} >
+              <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`} >
                 Accessibility Statement
               </a>
             </Link>
 
             <Link href="/website-terms" passHref>  
-              <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light md:min-w-[107px]`} >
+              <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`} >
                 Website Terms
               </a>
             </Link>
@@ -181,7 +181,7 @@ export default function Footer(props) {
 
               {privacyPolicyHandle && (
                 <Link href={privacyPolicyHandle?.link?.url} passHref>
-                  <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light md:min-w-[107px]`} >
+                  <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`} >
                     {privacyPolicyHandle?.title}
                   </a>
                 </Link>
@@ -189,13 +189,13 @@ export default function Footer(props) {
 
 
               <Link href="/accessibility-statement" passHref>  
-                <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light md:min-w-[107px]`} >
+                <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`} >
                   Accessibility Statement
                 </a>
               </Link>
 
               <Link href="/website-terms" passHref>  
-                <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light md:min-w-[107px]`} >
+                <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`} >
                   Website Terms
                 </a>
               </Link>
