@@ -59,23 +59,28 @@ export default function Footer(props) {
 
           </div>
 
-          <div className="hidden md2:flex items-center space-x-[42px] vw:space-x-[2.1875vw]">
+          <div className="hidden md2:flex items-center space-x-[16px] vw:space-x-[2.1875vw]">
 
             {privacyPolicyHandle && (
               <Link href={privacyPolicyHandle?.link?.url} passHref>
-                <a className={`text-[18px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light md:min-w-[107px]`} >
+                <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light md:min-w-[107px]`} >
                   {privacyPolicyHandle?.title}
                 </a>
               </Link>
             )}
 
-            {cookiesPreferencesHandle && (
-              <Link href={cookiesPreferencesHandle?.link?.url} passHref>  
-                <a className={`text-[18px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`} >
-                  {cookiesPreferencesHandle?.title}
-                </a>
-              </Link>
-            )}
+
+            <Link href="/accessibility-statement" passHref>  
+              <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light md:min-w-[107px]`} >
+                Accessibility Statement
+              </a>
+            </Link>
+
+            <Link href="/website-terms" passHref>  
+              <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light md:min-w-[107px]`} >
+                Website Terms
+              </a>
+            </Link>
 
           </div>
 
@@ -175,22 +180,25 @@ export default function Footer(props) {
             <div className="flex md2:hidden items-center space-x-[35px] vw:space-x-[1.822vw]">
 
               {privacyPolicyHandle && (
-                <Link href={privacyPolicyHandle.link.url} passHref>
-                  <a className={`text-[18px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`} >
-                    {privacyPolicyHandle.title}
+                <Link href={privacyPolicyHandle?.link?.url} passHref>
+                  <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light md:min-w-[107px]`} >
+                    {privacyPolicyHandle?.title}
                   </a>
                 </Link>
               )}
-              
-              {
-                cookiesPreferencesHandle && (
-                  <Link href={cookiesPreferencesHandle.link.url} passHref>
-                    <a className={`text-[18px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`} >
-                      {cookiesPreferencesHandle.title}
-                    </a>
-                  </Link>
-                )
-              }
+
+
+              <Link href="/accessibility-statement" passHref>  
+                <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light md:min-w-[107px]`} >
+                  Accessibility Statement
+                </a>
+              </Link>
+
+              <Link href="/website-terms" passHref>  
+                <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light md:min-w-[107px]`} >
+                  Website Terms
+                </a>
+              </Link>
 
             </div>
 

@@ -32,3 +32,19 @@ h1,h2,h3,h4{
 .swiper-button-disabled{
   opacity: 0.5!important;
 }
+
+.richtext-page{
+
+  ul{
+    @apply flex flex-col space-y-5;
+  }
+
+  li{
+    @apply leading-[1.5];
+  }
+
+  p{
+    @apply leading-[1.75];
+  }
+
+}
