@@ -75,7 +75,7 @@ export default function Header(props) {
         }
 
         window.addEventListener("scroll", handleScroll);
-        return window.removeEventListener("scroll", handleScroll, true);
+        return () => window.removeEventListener("scroll", handleScroll, true);
 
       }
 
@@ -111,7 +111,7 @@ export default function Header(props) {
 
       <header
       id="header"
-      className={` ${  existHero ? ((heroVisible == false && openModal == false ) ? "bg-black duration-[200ms]  " : "bg-transparent duration-[300ms]") : "" }
+      className={` ${  !existHero || !heroVisible || openModal ? "bg-body duration-[200ms]  " : "bg-gradient-to-b from-[#000000bf] to-transparent duration-[300ms]" }
       transition-colors z-[100] 
       ${ openModal ? "justify-center md2:!bg-transparent right-0 fixed md2:inset-x-0" : `justify-between ${stickyHeader ? "sticky bg-body" :  "fixed inset-x-0"} `} 
       top-0 px-4 md2:px-[2.8%] w-full md2:mx-auto flex items-center md2:justify-between
@@ -147,10 +147,10 @@ export default function Header(props) {
           {
             (!openModal && existHero) && (
               <Link href="/" passHref>
-                <a onClick={ () => setOpenModal(false)  } className="block cursor-pointer w-[60px] vw:w-[3.125vw]">
+                <a onClick={ () => setOpenModal(false)  } className="block cursor-pointer w-[204px] vw:w-[10vw]">
                   <Image
                     src={"/images/logo.svg"}
-                    width={60}
+                    width={204}
                     height={64}
                     alt="logo.png"
                     layout="responsive"
@@ -163,10 +163,10 @@ export default function Header(props) {
           {
             (openModal || !existHero) && (
               <Link href="/" passHref>
-                <a onClick={ () => setOpenModal(false)  } className="block cursor-pointer w-[60px] vw:w-[3.125vw]">
+                <a onClick={ () => setOpenModal(false)  } className="block cursor-pointer w-[204px] vw:w-[10vw]">
                   <Image
-                    src={"/images/logoDark.svg"}
-                    width={60}
+                    src={"/images/logo.svg"}
+                    width={204}
                     height={64}
                     alt="logo.png"
                     layout="responsive"
@@ -184,7 +184,7 @@ export default function Header(props) {
 
             <Link href={reservationsButton?.link?.url}>
               <a onClick={handleClick}>
-                <p className={`font-light ${(openModal || !existHero  ) ? "text-[#F5F5F5]" : "text-[#EAEBEF]"} transition-colors  text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.388] tracking-[.05em] uppercase`}>
+                <p className={`font-[390] text-[#E7E3DA] text-base leading-[100%] px-3 py-2 border border-[#E7E3DA] transition-colors vw:text-[.9375vw] vw:leading-[1.388] tracking-[.05em] uppercase`}>
                   {reservationsButton?.title}
                 </p>
               </a>
@@ -211,7 +211,7 @@ export default function Header(props) {
 
               { mainNav && mainNav?.map((item,index) => {
 
-                  if(index >= 4) return;
+                  if(index > 4) return;
 
                   const {title, link, image, _key} = item;
 
@@ -324,7 +324,7 @@ export default function Header(props) {
 
               {mainNav.map((item,index) => {
 
-                if(index >= 4){
+                if(index > 4){
 
                   const {title, link, image, _key} = item;
 
@@ -393,7 +393,7 @@ export default function Header(props) {
 
           <div className="flex items-center space-x-6 vw:space-x-[1.25vw]">
 
-            <a onClick={handleClick} href={facebookHandle} className="block w-8 vw:w-[1.666vw]">
+            {(facebookHandle && <a onClick={handleClick} href={facebookHandle} className="block w-8 vw:w-[1.666vw]">
 
               <Image
                 src={"/images/facebook.svg"}
@@ -403,9 +403,9 @@ export default function Header(props) {
                 height={32}
               />
 
-            </a>
+            </a>)}
 
-            <a onClick={handleClick} href={instagramHandle} className="block w-8 vw:w-[1.666vw]">
+           {(instagramHandle && <a onClick={handleClick} href={instagramHandle} className="block w-8 vw:w-[1.666vw]">
 
               <Image
                 src={"/images/instagram.svg"}
@@ -415,9 +415,9 @@ export default function Header(props) {
                 height={32}
               />
 
-            </a>
+            </a>)}
 
-            <a onClick={handleClick} href={spotifyHandle} className="block w-8 vw:w-[1.666vw]">
+            {(spotifyHandle && <a onClick={handleClick} href={spotifyHandle} className="block w-8 vw:w-[1.666vw]">
 
               <Image
                 src={"/images/spotify.svg"}
@@ -427,9 +427,9 @@ export default function Header(props) {
                 height={32}
               />
 
-            </a>
+            </a>)}
 
-            <a onClick={handleClick} href={soundCloudHandle} className="block w-8 vw:w-[1.666vw]">
+            {(soundCloudHandle && <a onClick={handleClick} href={soundCloudHandle} className="block w-8 vw:w-[1.666vw]">
 
               <Image
                 src={"/images/soundCloud.svg"}
@@ -439,7 +439,7 @@ export default function Header(props) {
                 height={32}
               />
 
-            </a>
+            </a>)}
 
           </div>
 

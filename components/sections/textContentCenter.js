@@ -58,7 +58,7 @@ export default function TextContentCenter(props) {
             <a
             className={`
               block ${(mobileAlignment && mobileAlignment == "left") ? "mr-auto md:mx-auto" : "mx-auto" }
-              max-w-max text-center uppercase opacity-80 tracking-[.05em] text-lg leading-[25px] vw:text-[.9375vw] vw:leading-[1.3888] font-light underline
+              max-w-max text-[#E7E3DA] px-3 py-2 border border-[#E7E3DA] text-center uppercase tracking-[.05em] text-base leading-[100%] vw:text-[.9375vw] vw:leading-[1.3888] font-[390]
             `}
             href={learn_more?.link}
           >

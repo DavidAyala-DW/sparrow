@@ -65,6 +65,14 @@ async function fulfillSectionQueries(page,internalLinks) {
   const sectionsWithQueryData = await Promise.all(
 
     page.page.content.map(async (section) => {
+      if (section._type === 'eventsSlider') {
+        if (Array.isArray(section.events)) {
+          await Promise.all(section.events.map(async (event) => {
+            const queryData = await client.fetch(groq`*[_type == "eventsSparrow" && _id == "${event._ref}" ][0]{...}`)
+            event.query = queryData;
+          }))
+        }
+      }
 
       if(section?.links){
         const {_type} = section?.links ?? null;

@@ -10,7 +10,7 @@ module.exports = {
       colors: {
         white: "#F3EDE2",
         primary: "#F3EDE2",
-        body: "#09090A"
+        body: "#2A3441"
       },
       fontFamily: {
         'garamond': ['"ITC Garamond Std"', 'sans-serif'],

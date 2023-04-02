@@ -16,7 +16,7 @@ export default function SanityImage(props) {
   }
 
   // Next complains if you add dimensions with layout="fill"
-  if (props.layout === 'fill') {
+  if (imageProps && props.layout === 'fill') {
     delete imageProps.width
     delete imageProps.height
   }

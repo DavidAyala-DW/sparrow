@@ -41,7 +41,7 @@ export default function Footer(props) {
 
         <div className="flex flex-col mb-[86px] md2:mb-0 md2:space-y-[110px] vw:space-y-[5.729vw] justify-between md2:mr-[6.7%] 3xl:mr-0 3xl:pr-[10.8333vw] 3xl:w-[calc(19.6875vw_+_10.833vw)] w-full">
 
-          <div className="grid md:max-w-[67.5%] md2:max-w-[78.64%] grid-cols-[1fr,2fr,1fr] md:grid-cols-[1fr,1.5fr,1fr] gap-x-[17px] md:gap-x-16 lg:gap-x-[42px] vw:gap-x-[2.1875vw] gap-y-8 vw:gap-y-[1.6666vw]">
+          <div className="grid md:max-w-[67.5%] md2:max-w-[78.64%] grid-cols-[1fr,1fr] gap-x-[17px] md:gap-x-16 lg:gap-x-[42px] vw:gap-x-[2.1875vw] gap-y-8 vw:gap-y-[1.6666vw]">
 
             {footerNav && footerNav.map( (item, i) => {
 
@@ -127,7 +127,7 @@ export default function Footer(props) {
 
             <div className="flex items-center space-x-6 vw:space-x-[1.25vw]">
 
-              <a href={facebookHandle} className="block w-8 vw:w-[1.666vw]">
+              {(facebookHandle && <a href={facebookHandle} className="block w-8 vw:w-[1.666vw]">
 
                 <Image
                   src={"/images/facebook.svg"}
@@ -137,9 +137,9 @@ export default function Footer(props) {
                   height={32}
                 />
 
-              </a>
+              </a>)}
 
-              <a href={instagramHandle} className="block w-8 vw:w-[1.666vw]">
+              {(instagramHandle && <a href={instagramHandle} className="block w-8 vw:w-[1.666vw]">
 
                 <Image
                   src={"/images/instagram.svg"}
@@ -149,9 +149,9 @@ export default function Footer(props) {
                   height={32}
                 />
 
-              </a>
+              </a>)}
 
-              <a  href={spotifyHandle} className="block w-8 vw:w-[1.666vw]">
+              {(spotifyHandle && <a  href={spotifyHandle} className="block w-8 vw:w-[1.666vw]">
 
                 <Image
                   src={"/images/spotify.svg"}
@@ -161,9 +161,9 @@ export default function Footer(props) {
                   height={32}
                 />
 
-              </a>
+              </a>)}
 
-              <a  href={soundCloudHandle} className="block w-8 vw:w-[1.666vw]">
+             {(soundCloudHandle && <a  href={soundCloudHandle} className="block w-8 vw:w-[1.666vw]">
 
                 <Image
                   src={"/images/soundCloud.svg"}
@@ -173,7 +173,7 @@ export default function Footer(props) {
                   height={32}
                 />
 
-              </a>
+              </a>)}
 
             </div>
 

@@ -6,7 +6,6 @@ import { socialMediasIcons } from "@/helpers/socialMedias";
 import Image from "next/image";
 
 export default function ImageWithText(props) {
-
   const {
     title,
     description,

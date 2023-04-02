@@ -12,31 +12,8 @@ export default function Event(props) {
     image,
     position,
     link,
-    date
+    dates
   } = props;
-
-  const [showDate, setShowDate] = useState(false);
-
-  const handleFormatDate = useCallback((date) => {
-
-    const options = {
-      year: 'numeric', month: 'long', day: 'numeric', weekday: 'long',
-      hour: 'numeric', minute: 'numeric',
-      hour12: true,
-    };
-
-    const dateObject = new Date(date);  
-    const formatedDate = new Intl.DateTimeFormat('en-US', options).format(dateObject);
-
-    return formatedDate;
-
-  }, []);
-  
-  
-  useEffect(() => {
-    setShowDate(true)
-  }, []);
-
 
   return (
 
@@ -78,7 +55,7 @@ export default function Event(props) {
         </h2>
 
         <p className="font-normal text-base vw:text-[.8333vw] leading-[1.5] opacity-[.85] mb-5 vw:mb-[1.041666vw]">
-            {showDate && handleFormatDate(date)}
+            {dates}
         </p>
 
         <div className="opacity-[.85] text-base vw:text-[.8333vw] w-full md:max-w-[500px] lg:max-w-[531px] vw:max-w-[27.656vw] leading-[1.5] font-normal">
@@ -100,7 +77,7 @@ export default function Event(props) {
         {
           link && (
             <Link href={link?.url} passHref>
-              <a className="mt-10 vw:mt-[2.0833] text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[.05em] opacity-80 uppercase underline font-light" >
+              <a className="mt-10 vw:mt-[2.0833] max-w-min font-[390] text-[#E7E3DA] text-base leading-[100%] px-3 py-2 border border-[#E7E3DA] transition-colors vw:text-[.9375vw] vw:leading-[1.388] tracking-[.05em] uppercase" >
                 {link?.title}
               </a>
             </Link>
