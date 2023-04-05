@@ -68,17 +68,17 @@ async function fulfillSectionQueries(page,internalLinks) {
       if (section._type === 'eventsSlider') {
         if (Array.isArray(section.events)) {
           await Promise.all(section.events.map(async (event) => {
-            const queryData = await client.fetch(groq`*[_type == "eventsSparrow" && _id == "${event._ref}" ][0]{...}`)
+            const queryData = await client.fetch(groq`*[_type == "eventSparrow" && _id == "${event._ref}" ][0]{...}`)
             event.query = queryData;
           }))
         }
       }
 
       if(section?.links){
-        const {_type} = section?.links ?? null;
+        const {_type} = section?.links ?? {};
         if(_type == "links"){
-          const {link} = section?.links ?? null;
-          const selectedLink = internalLinks.find(internalLink => internalLink._id == link._ref);
+          const {link} = section?.links ?? {};
+          const selectedLink = internalLinks.find(internalLink => internalLink._id == link?._ref);
           if(selectedLink){
             section.links.internalLink = selectedLink.slug.current;
           }          

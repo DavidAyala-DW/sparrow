@@ -25,11 +25,11 @@ export default function Menus(props) {
           {
             locations && locations.map(location => {
 
-              const {title, image, menus, slug} = location;
+              const {title, image, menus, slug, _key} = location;
 
               return ( 
 
-                <div className="flex flex-col space-y-6">
+                <div key={_key} className="flex flex-col space-y-6">
 
                   <div className="flex flex-col w-full aspect-h-1 aspect-w-[1.324] md:aspect-w-[2.687] lg:aspect-w-[1.349] 3xl:aspect-w-[1.837]">
                     <div className="w-full h-full">

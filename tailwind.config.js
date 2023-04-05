@@ -13,7 +13,7 @@ module.exports = {
         body: "#2A3441"
       },
       fontFamily: {
-        'garamond': ['"ITC Garamond Std"', 'sans-serif'],
+        'havre': ['"Le Havre"', 'sans-serif'],
         'brandom': ['"Brandon Grotesque"', 'sans-serif']
       },
     },
