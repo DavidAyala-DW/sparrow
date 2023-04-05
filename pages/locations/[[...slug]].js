@@ -65,7 +65,14 @@ async function fulfillSectionQueries(page, slug) {
   const sectionsWithQueryData = await Promise.all(
 
     page.content.map(async (section) => {
-
+      if (section._type === 'eventsSlider') {
+        if (Array.isArray(section.events)) {
+          await Promise.all(section.events.map(async (event) => {
+            const queryData = await client.fetch(groq`*[_type == "eventSparrow" && _id == "${event._ref}" ][0]{...}`)
+            event.query = queryData;
+          }))
+        }
+      }
     
       if(section._type === 'imageWithText' && section?.menus){
         section.menus = page.menus;

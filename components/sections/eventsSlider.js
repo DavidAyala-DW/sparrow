@@ -9,6 +9,7 @@ import { Navigation } from "swiper";
 export default function EventsSlider(props) {
 
   const {title, links, events} = props;
+  // console.log(events)
 
   return (
 

@@ -149,7 +149,7 @@ export default function ImageWithText(props) {
 
         {
           menus && (
-            <div className="flex flex-col space-y-6 md:space-y-0 md:flex-row md:flex-wrap mt-10 md:items-center md:max-w-[70%]">
+            <div className="flex flex-col space-y-6 md:space-y-0 md:flex-row md:flex-wrap mt-10 md:items-center md:max-w-[74%]">
               {
                 menus.map(menu => {
 

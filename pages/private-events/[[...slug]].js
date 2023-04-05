@@ -1,3 +1,4 @@
+import imageUrlBuilder from '@sanity/image-url'
 import groq from 'groq'
 import { NextSeo } from 'next-seo'
 import client from '@/lib/sanity-client'
@@ -7,17 +8,24 @@ import RenderSections from '@/components/render-sections'
 import { getSlugVariations, slugParamToPath } from '@/lib/urls'
 import { getClient } from '@/lib/sanity.server'
 import { usePreviewSubscription } from '@/lib/sanity'
-import { pageContentQuery } from '@/lib/queries'
+import {locationQuery} from "@/lib/queries"
 
 const ExitPreviewButton = dynamic(() =>
   import('@/components/exit-preview-button')
 )
 
 export default function Page(props) {
-
+  
   const { preview, data, siteSettings, menus, locations } = props;
+  const {page: {
+    title,
+    seo_title,
+    description,
+    openGraphImage
+  }} = data;
+  const builder = imageUrlBuilder(getClient(preview))
+
   const stickyHeader = false;
-  const {page: {page : {title}}} = data;
   const { data: previewData } = usePreviewSubscription(data?.query, {
     params: data?.queryParams ?? {},
     // The hook will return this on first render
@@ -27,12 +35,27 @@ export default function Page(props) {
     enabled: preview,
   })
 
-  const page = filterDataToSingleItem(previewData?.page, preview)
+  const page = filterDataToSingleItem(previewData, preview)
+  page.content = Array.isArray(page.content) ? [...page.content] : [];
 
   return (    
     <Layout menus={menus} locations={locations} siteSettings={siteSettings} stickyHeader={stickyHeader}>
       <NextSeo
         title={title}
+        description={description ?? ""}
+        {...(openGraphImage ? {openGraph: 
+          {
+            images: [
+              {
+                url: builder.image(openGraphImage).width(1200).height(630).url(),
+                width: 1200,
+                height: 630,
+                alt: title,
+              },
+            ]
+          }
+
+        } : {})}
       />
       {page?.content && <RenderSections sections={page?.content} />}
       {preview && <ExitPreviewButton />}
@@ -56,28 +79,20 @@ function filterDataToSingleItem(data, preview) {
   return data[0]
 }
 
-async function fulfillSectionQueries(page,internalLinks) {
 
-  if (!page?.page?.content) {
+async function fulfillSectionQueries(page, slug, internalLinks) {
+
+  if (!page.content) {
     return page
   }
 
   const sectionsWithQueryData = await Promise.all(
 
-    page.page.content.map(async (section) => {
+    page.content.map(async (section) => {
       if (section._type === 'eventsSlider') {
         if (Array.isArray(section.events)) {
           await Promise.all(section.events.map(async (event) => {
             const queryData = await client.fetch(groq`*[_type == "eventSparrow" && _id == "${event._ref}" ][0]{...}`)
-            event.query = queryData;
-          }))
-        }
-      }
-
-      if (section._type === 'privateEventsList') {
-        if (Array.isArray(section.eventsList)) {
-          await Promise.all(section.eventsList.map(async (event) => {
-            const queryData = await client.fetch(groq`*[_type == "eventsSparrow" && _id == "${event._ref}" ][0]{...}`)
             event.query = queryData;
           }))
         }
@@ -127,6 +142,7 @@ async function fulfillSectionQueries(page,internalLinks) {
       } else {
         return section
       }
+
     })
   )
 
@@ -136,7 +152,7 @@ async function fulfillSectionQueries(page,internalLinks) {
 
 export async function getStaticPaths() {
 
-  const routes = await client.fetch(groq`*[_type == 'routesSparrow']{slug}`);
+  const routes = await client.fetch(groq`*[_type == 'locationsSparrow']{slug}`);
   const paths = routes.map(({ slug }) => ({
     params: {
       slug: slug.current === '/' ? false : [slug.current],
@@ -147,7 +163,7 @@ export async function getStaticPaths() {
     paths: paths,
     fallback: false,
   }
-  
+
 }
 
 async function getMenus(){
@@ -161,7 +177,7 @@ async function getSiteConfig(){
 }
 
 async function getLocations(){
-  const request = await client.fetch(groq`*[_type == "locationsSparrow"] {_id, title, comming_soon, menus, slug {current}} `);
+  const request = await client.fetch(groq`*[_type == "locationsSparrow"] | order(_createdAt  asc) {_id, title, comming_soon, menus, slug {current}} `);
   return request;
 }
 
@@ -169,41 +185,49 @@ async function getPageSections(slug){
 
   const request = await client.fetch(
     groq`
-      *[_type == "routesSparrow" && slug.current in $possibleSlugs][0]{
-        page -> {...}
+      *[_type == "locationsSparrow" && slug.current in $possibleSlugs][0]{
+        _id,
+        title,
+        content
       }
     `,
     { possibleSlugs: getSlugVariations(slug) }
   )
-
-  return request?.page;
+  
+  try {
+    request.content = [...request.content];
+  } catch (error) {
+    request.content = [];
+  }
+  
+  return request
 }
 
 export const getStaticProps = async ({ params, preview = false }) => {
 
-  const slug = slugParamToPath(params?.slug)
+  
+  const slug = slugParamToPath(params?.slug);
   const client = getClient(preview)
   const query =  groq`
-    *[_type == "routesSparrow" && slug.current in $possibleSlugs][0]{
-      page -> {...}
+    *[_type == "eventsSparrow" && slug.current in $possibleSlugs][0]{
+      ...
     }
-  ` 
+  `
   const queryParams = { possibleSlugs: getSlugVariations(slug) }
-  let data = await client.fetch(query, queryParams)
-  let [siteSettings, menus, locations] = await Promise.all([getSiteConfig(), getMenus(), getLocations()])  
+  let data = await client.fetch(query, queryParams);
+  let [siteSettings, menus, locations] = await Promise.all([getSiteConfig(), getMenus(), getLocations()])
   let page = filterDataToSingleItem(data, preview)
+  page.content = [...page.content];
   page.slug = slug;
   page.locations = locations;
-  page = await fulfillSectionQueries(data,menus)
+  page = await fulfillSectionQueries(data, slug, menus)
   page.query = query;
   page.queryParams = queryParams;
-  
 
   return {
     props:{
       data: {page, query, queryParams},
       siteSettings,
-      menus,
       locations,
       menus,
       preview

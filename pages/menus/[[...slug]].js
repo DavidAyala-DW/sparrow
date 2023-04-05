@@ -29,7 +29,7 @@ export default function Page(props) {
   })
 
   const page = filterDataToSingleItem(previewData, preview)
-  page.content = [...page.menuPageContent];
+  page.content = Array.isArray(page.menuPageContent) ? [...page.menuPageContent] : [];
 
   return (    
     <Layout menus={menus} locations={locations} siteSettings={siteSettings} stickyHeader={stickyHeader}>
@@ -160,7 +160,7 @@ async function getPageSections(slug){
   )
   
   try {
-    request.content = [...request.menuPageContent];
+    request.content = Array.isArray(request.menuPageContent) ? [...request.menuPageContent] : [];
   } catch (error) {
     request.content = [];
   }
@@ -183,7 +183,7 @@ export const getStaticProps = async ({ params, preview = false }) => {
   let data = await client.fetch(query, queryParams);
   let [siteSettings, menus, locations] = await Promise.all([getSiteConfig(), getMenus(), getLocations()])
   let page = filterDataToSingleItem(data, preview)
-  page.content = [...page.menuPageContent];
+  page.content = Array.isArray(page.menuPageContent) ? [...page.menuPageContent] : [];
   page.slug = slug;
   page.locations = locations;
   page = await fulfillSectionQueries(data, slug, menus)
