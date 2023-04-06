@@ -183,7 +183,7 @@ export default function Header(props) {
           {(reservationsButton && (
 
             <Link href={reservationsButton?.link?.url}>
-              <a onClick={handleClick}>
+              <a onClick={() => setOpenModal(false)}>
                 <p className={`font-[390] text-[#E7E3DA] text-base leading-[100%] px-3 py-2 border border-[#E7E3DA] transition-colors vw:text-[.9375vw] vw:leading-[1.388] tracking-[.05em] uppercase`}>
                   {reservationsButton?.title}
                 </p>
@@ -243,7 +243,7 @@ export default function Header(props) {
                                 <a
                                   onMouseLeave={handleMouseDown}
                                   onMouseEnter={() => handleMouseOver(image)}
-                                  onClick={handleClick}
+                                  onClick={(e) => (e.preventDefault(), setIsMenuOpen(!isMenuOpen))}
                                   className="block font-light tracking-[-.04em] text-[32px] md2:text-[55px] vw:text-[2.864vw] leading-[44px] md2:leading-[75px] vw:leading-[1.36]"
                                 >
                                   {title}
@@ -277,6 +277,7 @@ export default function Header(props) {
                                           !comming_soon && (
                                             <Link href={`/menus/${current}?menu=dinner-menu`} passHref>
                                               <a
+                                              onClick={() => setOpenModal(false)}
                                               className={`
                                                 text-[#EAEBEF] text-lg md2:text-[24px] leading-[1.6] tracking-[-.02em] font-normal font-brandom
                                               ${comming_soon ? "opacity-50 !cursor-not-allowed" : "opacity-90"} `}>
@@ -350,7 +351,7 @@ export default function Header(props) {
 
                   <Link href={reservationsButton?.link?.url}>
                     <a
-                      onClick={handleClick}
+                      onClick={() => setOpenModal(false)}
                       className="block font-light tracking-[-.04em] text-[32px] md2:text-[55px] vw:text-[2.864vw] leading-[44px] md2:leading-[75px] vw:leading-[1.36]"
                     >
                       {reservationsButton?.title}

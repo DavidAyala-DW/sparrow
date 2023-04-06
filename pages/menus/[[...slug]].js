@@ -58,7 +58,7 @@ function filterDataToSingleItem(data, preview) {
   return data[0]
 }
 
-async function fulfillSectionQueries(page, slug) {
+async function fulfillSectionQueries(page, slug, internalLinks) {
 
   if (!page.content) {
     return page
@@ -67,6 +67,34 @@ async function fulfillSectionQueries(page, slug) {
   const sectionsWithQueryData = await Promise.all(
 
     page.content.map(async (section) => {
+      if (section._type === 'eventsSlider') {
+        if (Array.isArray(section.events)) {
+          await Promise.all(section.events.map(async (event) => {
+            const queryData = await client.fetch(groq`*[_type == "eventSparrow" && _id == "${event._ref}" ][0]{...}`)
+            event.query = queryData;
+          }))
+        }
+      }
+
+      if (section._type === 'privateEventsList') {
+        if (Array.isArray(section.eventsList)) {
+          await Promise.all(section.eventsList.map(async (event) => {
+            const queryData = await client.fetch(groq`*[_type == "eventsSparrow" && _id == "${event._ref}" ][0]{...}`)
+            event.query = queryData;
+          }))
+        }
+      }
+
+      if(section?.links){
+        const {_type} = section?.links ?? {};
+        if(_type == "links"){
+          const {link} = section?.links ?? {};
+          const selectedLink = internalLinks.find(internalLink => internalLink._id == link?._ref);
+          if(selectedLink){
+            section.links.internalLink = selectedLink.slug.current;
+          }          
+        }        
+      }
 
       if(section._type == "menusContent"){
         const {title,menus} = await client.fetch(groq`${locationQuery(slug)}`);
@@ -100,10 +128,13 @@ async function fulfillSectionQueries(page, slug) {
 
       }
 
+      if(section._type === 'imageWithText' && section?.show_locations){
+        section.locations = page?.locations;
+      }
+
       if (section.query) {
         const queryData = await client.fetch(groq`${section.query}`)
         return { ...section, query: queryData }
-
       } else {
         return section
       }

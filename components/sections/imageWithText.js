@@ -19,7 +19,8 @@ export default function ImageWithText(props) {
     menus,
     locations,
     imagesPosition,
-    imagePositionTablet
+    imagePositionTablet,
+    pressImage
   } = props;
 
   const socialMediasList = socialMedias?.socialMedias ?? [];
@@ -88,6 +89,9 @@ export default function ImageWithText(props) {
         ${alignment == "top" && " lg:pt-[15px] vw:pt-[.78125vw] "}
         `
       }>        
+      {(isPressPage && pressImage) && <div>
+        <SanityImage src={pressImage} width='110' height='25' alt='Press image' />
+      </div>}
 
         <h2
         className="font-light capitalize text-[32px] vw:text-[1.666vw] leading-[44px] vw:leading-[1.375] mb-[18px] vw:mb-[.9375vw]"

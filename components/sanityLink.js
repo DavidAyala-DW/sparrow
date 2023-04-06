@@ -11,7 +11,7 @@ export default function SanityLink(props) {
     children
   } = props;
   
-  const link = (externalLink ? externalLink : internalLink) ?? "/";
+  const link = (internalLink ? `${internalLink.startsWith('/') ? '' : '/'}${internalLink}` : externalLink) || "/";
 
   return (
 

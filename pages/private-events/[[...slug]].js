@@ -98,6 +98,15 @@ async function fulfillSectionQueries(page, slug, internalLinks) {
         }
       }
 
+      if (section._type === 'privateEventsList') {
+        if (Array.isArray(section.eventsList)) {
+          await Promise.all(section.eventsList.map(async (event) => {
+            const queryData = await client.fetch(groq`*[_type == "eventsSparrow" && _id == "${event._ref}" ][0]{...}`)
+            event.query = queryData;
+          }))
+        }
+      }
+
       if(section?.links){
         const {_type} = section?.links ?? {};
         if(_type == "links"){
