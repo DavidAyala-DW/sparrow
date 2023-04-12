@@ -105,6 +105,9 @@ async function fulfillSectionQueries(page,internalLinks) {
             location.menus = menus;
             location.slug = slug;
             location.query = queryData;
+
+            const contactRouteData = await client.fetch(groq`*[_type == "routesSparrow" && _id == "${queryData.contactRoute._ref}"][0]{...}`)
+            location.contactRoute = contactRouteData.slug;
           }
 
           ))
