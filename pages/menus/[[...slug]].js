@@ -70,6 +70,7 @@ async function fulfillSectionQueries(page, slug, internalLinks) {
       if (section._type === 'eventsSlider') {
         if (Array.isArray(section.events)) {
           await Promise.all(section.events.map(async (event) => {
+            if(!event?._ref) return;
             const queryData = await client.fetch(groq`*[_type == "eventSparrow" && _id == "${event._ref}" ][0]{...}`)
             event.query = queryData;
           }))
@@ -79,6 +80,7 @@ async function fulfillSectionQueries(page, slug, internalLinks) {
       if (section._type === 'privateEventsList') {
         if (Array.isArray(section.eventsList)) {
           await Promise.all(section.eventsList.map(async (event) => {
+            if(!event?._ref) return;
             const queryData = await client.fetch(groq`*[_type == "eventsSparrow" && _id == "${event._ref}" ][0]{...}`)
             event.query = queryData;
           }))
@@ -109,6 +111,7 @@ async function fulfillSectionQueries(page, slug, internalLinks) {
         if(Array.isArray(section.locations)){
           
           await Promise.all(section.locations.map(async (location) => {
+            if(!location?._ref) return;
             const queryData = await client.fetch(groq`*[_type == "locationsSparrow" && _id == "${location._ref}" ][0]{...}`)
             const {title, image} = queryData;
             location.title = title;
