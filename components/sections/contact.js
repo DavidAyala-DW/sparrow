@@ -1,33 +1,33 @@
-import { useForm } from 'react-hook-form'
-import { nopeResolver } from '@hookform/resolvers/nope'
-import Nope from 'nope-validator'
+import { useForm } from 'react-hook-form';
+import { nopeResolver } from '@hookform/resolvers/nope';
+import Nope from 'nope-validator';
 import { useEffect, useState } from 'react';
-import Field from '../field'
-import Checkbox from '../checkbox'
+import Field from '../field';
+import Checkbox from '../checkbox';
 import File from '../inputFile';
 
 export default function Contact(props) {
 
-  const {title, description} = props;
+  const { locations, title, description } = props;
   const [activeOption, setActiveOption] = useState();
-  
+
   const schema = Nope.object().shape({
     name: Nope.string().required(),
     email: Nope.string().email().required(),
     message: Nope.string()
-  })
+  });
 
   useEffect(() => {
-    setActiveOption("inquiry")
+    setActiveOption("inquiry");
   }, []);
 
   const {
     register,
     formState: { errors, isValid, isSubmitted },
     handleSubmit,
-  } = useForm({ resolver: nopeResolver(schema) })
+  } = useForm({ resolver: nopeResolver(schema) });
 
-  const onSubmit = (values) => console.log(values)
+  const onSubmit = (values) => console.log(values);
 
   return (
 
@@ -42,10 +42,10 @@ export default function Contact(props) {
       </p>
 
       <div className="flex flex-col space-y-[30px] md:space-y-0 md:grid md:grid-cols-[51%_calc(49%-44px)] md:gap-x-[44px] md:gap-y-7 lg:flex lg:flex-row lg:space-x-[22px] vw:space-x-[1.1458vw] w-max mx-auto mb-20 vw:mb-[4.1666vw]">
-        <Checkbox {...{activeOption}} {...{setActiveOption}} text="General Inquiry" id="inquiry"/>
-        <Checkbox {...{activeOption}} {...{setActiveOption}} text="Reservations" id="reservation"/>
-        <Checkbox {...{activeOption}} {...{setActiveOption}} text="Careers" id="careers"/>
-        <Checkbox {...{activeOption}} {...{setActiveOption}} text="Press" id="press"/>
+        <Checkbox {...{ activeOption }} {...{ setActiveOption }} text="General Inquiry" id="inquiry" />
+        <Checkbox {...{ activeOption }} {...{ setActiveOption }} text="Reservations" id="reservation" />
+        <Checkbox {...{ activeOption }} {...{ setActiveOption }} text="Careers" id="careers" />
+        <Checkbox {...{ activeOption }} {...{ setActiveOption }} text="Press" id="press" />
       </div>
 
       <form
@@ -74,12 +74,23 @@ export default function Contact(props) {
           placeholder="Your email"
         />
 
+        <Field
+          className="mb-[26px] vw:mb-[.9375vw]"
+          register={register}
+          type="select"
+          label="Location"
+          id="location"
+          options={locations.map((item) => ({ value: item.title, label: item.title }))}
+          errors={errors}
+          placeholder="Select location"
+        />
+
         {
           activeOption == "press" && (
             <File className="mb-[18px] vw:mb-[.9375vw]" />
           )
         }
-        
+
 
         <Field
           className="mb-[26px] md:mb-12 vw:mb-[2.5vw]"
@@ -90,7 +101,7 @@ export default function Contact(props) {
           id="message"
         />
 
-        <button 
+        <button
           type="submit"
           className="font-avenir text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[.05em] text-center uppercase opacity-80 underline"
         >
@@ -101,7 +112,7 @@ export default function Contact(props) {
 
     </section>
 
-  )
+  );
 
 }
 

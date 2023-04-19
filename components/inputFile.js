@@ -4,7 +4,7 @@ export default function File({className}) {
 
     <fieldset className={`flex flex-col w-full space-y-2 md:space-y-1 vw:space-y-[.208vw] ${className}`}>
 
-      <p className={`block opacity-80 text-base md:text-[20px] vw:text-[1.0416vw] leading-[1.5] font-light`}>
+      <p className={`block font-bold opacity-80 text-base md:text-[20px] vw:text-[1.0416vw] leading-[1.5] font-light`}>
         Upload Attachment
       </p>
 

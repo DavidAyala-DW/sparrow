@@ -184,7 +184,7 @@ export default function Header(props) {
 
             <Link href={reservationsButton?.link?.url}>
               <a onClick={() => setOpenModal(false)}>
-                <p className={`font-[390] text-[#E7E3DA] text-base leading-[100%] px-3 py-2 border border-[#E7E3DA] transition-colors vw:text-[.9375vw] vw:leading-[1.388] tracking-[.05em] uppercase`}>
+                <p className={`font-[390] text-[#E7E3DA] text-base leading-[100%] px-3 py-2 border border-[#E7E3DA] transition-colors vw:text-[.9375vw] vw:leading-[1.388] tracking-[.05em] uppercase hover:text-body hover:bg-[#E7E3DA]`}>
                   {reservationsButton?.title}
                 </p>
               </a>
@@ -352,7 +352,7 @@ export default function Header(props) {
                   <Link href={reservationsButton?.link?.url}>
                     <a
                       onClick={() => setOpenModal(false)}
-                      className="block font-light tracking-[-.04em] text-[32px] md2:text-[55px] vw:text-[2.864vw] leading-[44px] md2:leading-[75px] vw:leading-[1.36]"
+                      className="block font-light tracking-[-.04em] text-[32px] md2:text-[55px] vw:text-[2.864vw] leading-[44px] md2:leading-[75px] vw:leading-[1.36] hover:text-body hover:bg-[#E7E3DA]"
                     >
                       {reservationsButton?.title}
                     </a>
