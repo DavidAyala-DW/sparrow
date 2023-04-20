@@ -23,6 +23,8 @@ async function sendEmail(body){
 
   try {
 
+    console.log(body?.option);
+
     if(body?.option == "press"){
 
       await transporter.sendMail({

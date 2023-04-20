@@ -67,6 +67,7 @@ export default function Contact(props) {
       });
 
       const response = await request.json();
+      console.log(response);
       const {status, message} = response;
       if(status == "successful"){
         reset();
@@ -93,7 +94,7 @@ export default function Contact(props) {
       </p>
 
       <div className="flex flex-col space-y-[30px] md:space-y-0 md:grid md:grid-cols-[51%_calc(49%-44px)] md:gap-x-[44px] md:gap-y-7 lg:flex lg:flex-row lg:space-x-[22px] vw:space-x-[1.1458vw] w-max mx-auto mb-20 vw:mb-[4.1666vw]">
-        <Checkbox {...{ activeOption }} {...{ setActiveOption }} text="General Inquiry" id="inquiry" />
+        <Checkbox {...{ activeOption }} {...{ setActiveOption }} text="General Inquiry" id="general_inquiry" />
         <Checkbox {...{ activeOption }} {...{ setActiveOption }} text="Reservations" id="reservation" />
         <Checkbox {...{ activeOption }} {...{ setActiveOption }} text="Events" id="events" />
         <Checkbox {...{ activeOption }} {...{ setActiveOption }} text="Press" id="press" />
