@@ -120,7 +120,7 @@ export default function Header(props) {
 
         <div className={`cursor-pointer order-3 md2:order-1 select-none ${openModal && "absolute right-4 md2:left-0 md2:relative"}`}>
 
-          <div onClick={handleClick} className={`${openModal && "hidden"} w-[25px] vw:!w-[1.302vw]`} role='button'>
+          <div onClick={handleClick} className={`${openModal && "hidden"} w-[25px] vw:!w-[1.302vw]`} role='button' tabIndex={0}>
             <Image
               src={`/images/${existHero ? "burguer.svg" : "burguerBrown.svg"}`}
               alt="burger"
@@ -130,7 +130,7 @@ export default function Header(props) {
             />
           </div>
 
-          <div onClick={handleClick} className={`${!openModal && "hidden"} w-[21px] vw:!w-[1.09375vw]`} role='button'>
+          <div onClick={handleClick} className={`${!openModal && "hidden"} w-[21px] vw:!w-[1.09375vw]`} role='button' tabIndex={0}>
             <Image
               src={"/images/close.svg"}
               alt="close"

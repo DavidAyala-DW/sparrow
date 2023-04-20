@@ -17,6 +17,7 @@ export default function Page(props) {
 
   const { preview, data, siteSettings, menus, locations } = props;
   const stickyHeader = false;
+  console.log(props)
   const {page: {page : {title}}} = data;
   const { data: previewData } = usePreviewSubscription(data?.query, {
     params: data?.queryParams ?? {},

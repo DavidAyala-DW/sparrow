@@ -36,7 +36,7 @@ export default function Reservations(props) {
                     <div className="w-full h-full">
                       <div className="w-full h-full relative">
                         <SanityImage
-                          alt={alt_text ?? "Image"}
+                          alt={alt_text ?? title ?? "Event"}
                           src={image}
                           layout="fill"
                           className="object-cover"

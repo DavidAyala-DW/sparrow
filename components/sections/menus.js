@@ -38,7 +38,7 @@ export default function Menus(props) {
                           <SanityImage
                             src={image}
                             layout="fill"
-                            alt="Image"
+                            alt={title}
                             className="object-cover cursor-pointer"
                           />
                         </Link>

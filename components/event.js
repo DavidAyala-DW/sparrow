@@ -17,7 +17,7 @@ export default function Event({ event }) {
               <SanityImage
                 className="object-cover"
                 src={image}
-                alt="Event image"
+                alt={title}
                 layout="fill"
               />
             </div>

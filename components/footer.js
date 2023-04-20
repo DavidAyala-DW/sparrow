@@ -8,13 +8,13 @@ export default function Footer(props) {
     instagramHandle,
     spotifyHandle,
     soundCloudHandle,
-    privacyPolicyHandle,    
+    privacyPolicyHandle,
     cookiesPreferencesHandle,
     footerNav,
     footer_noble_link,
     newsletter_text
   } = props;
-  
+
   return (
 
     <footer className="3xl:justify-between px-4 md:px-0 pb-[22px] md:pb-[36px] md2:pb-[50px] vw:pb-[2.604vw] md:max-w-[94.4%] w-full md:mx-auto flex flex-col md2:flex-row items-stretch">
@@ -43,9 +43,9 @@ export default function Footer(props) {
 
           <div className="grid md:max-w-[67.5%] md2:max-w-[78.64%] grid-cols-[1fr,1fr] gap-x-[17px] md:gap-x-16 lg:gap-x-[42px] vw:gap-x-[2.1875vw] gap-y-8 vw:gap-y-[1.6666vw]">
 
-            {footerNav && footerNav.map( (item, i) => {
+            {footerNav && footerNav.map((item, i) => {
 
-              const {title,link} = item;
+              const { title, link } = item;
 
               return (
                 <Link href={link?.url} passHref key={i}>
@@ -53,7 +53,7 @@ export default function Footer(props) {
                     {title}
                   </a>
                 </Link>
-              )
+              );
 
             })}
 
@@ -70,13 +70,13 @@ export default function Footer(props) {
             )}
 
 
-            <Link href="/accessibility-statement" passHref>  
+            <Link href="/accessibility-statement" passHref>
               <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`} >
                 Accessibility Statement
               </a>
             </Link>
 
-            <Link href="/website-terms" passHref>  
+            <Link href="/website-terms" passHref>
               <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`} >
                 Website Terms
               </a>
@@ -92,7 +92,7 @@ export default function Footer(props) {
 
             <h3 className="block font-brandom text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light">
               {newsletter_text ?? "Newsletter"}
-            </h3>  
+            </h3>
 
             <form className="w-full md:max-w-[70%] md2:max-w-full" action="">
 
@@ -103,6 +103,7 @@ export default function Footer(props) {
                   placeholder:text-[rgba(234,_235,_239,1)] md:placeholder:text-[rgba(234,_235,_239,_0.5)] leading-[1.5] font-light opacity-80"
                   type="email"
                   name="email"
+                  aria-label='Email'
                   id="email"
                   placeholder="Enter your email address"
                 />
@@ -118,7 +119,7 @@ export default function Footer(props) {
                 </button>
 
               </fieldset>
-              
+
             </form>
 
           </div>
@@ -151,7 +152,7 @@ export default function Footer(props) {
 
               </a>)}
 
-              {(spotifyHandle && <a  href={spotifyHandle} className="block w-8 vw:w-[1.666vw]">
+              {(spotifyHandle && <a href={spotifyHandle} className="block w-8 vw:w-[1.666vw]">
 
                 <Image
                   src={"/images/spotify.svg"}
@@ -163,7 +164,7 @@ export default function Footer(props) {
 
               </a>)}
 
-             {(soundCloudHandle && <a  href={soundCloudHandle} className="block w-8 vw:w-[1.666vw]">
+              {(soundCloudHandle && <a href={soundCloudHandle} className="block w-8 vw:w-[1.666vw]">
 
                 <Image
                   src={"/images/soundCloud.svg"}
@@ -188,13 +189,13 @@ export default function Footer(props) {
               )}
 
 
-              <Link href="/accessibility-statement" passHref>  
+              <Link href="/accessibility-statement" passHref>
                 <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`} >
                   Accessibility Statement
                 </a>
               </Link>
 
-              <Link href="/website-terms" passHref>  
+              <Link href="/website-terms" passHref>
                 <a className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`} >
                   Website Terms
                 </a>
@@ -212,7 +213,7 @@ export default function Footer(props) {
                       width={145}
                       height={24}
                       layout="responsive"
-                    />  
+                    />
                   </a>
                 </Link>
               )
@@ -228,6 +229,6 @@ export default function Footer(props) {
 
     </footer>
 
-  )
+  );
 
 }
