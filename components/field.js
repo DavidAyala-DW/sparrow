@@ -20,7 +20,6 @@ export default function Field(props) {
       className={`flex flex-col w-full ${className} `}
       style={{ colorScheme: 'dark' }}
     >
-
       <fieldset
         className={`flex flex-col space-y-2 md:space-y-1 vw:space-y-[.2083vw] w-full`}
       >
@@ -96,8 +95,8 @@ export default function Field(props) {
               </select>
 
               <div className="absolute w-6 h-6 top-[calc(50%-12px)] right-5 pointer-events-none">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ffffff" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <polyline points="6 9 12 15 18 9" />
                 </svg>
               </div>

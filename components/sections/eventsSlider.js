@@ -97,7 +97,7 @@ export default function EventsSlider(props) {
 
       <div className="absolute pl-[3.33%] bottom-0 left-0 flex items-center space-x-4 vw:space-x-[.83333vw]">
 
-        <div className="left-arrow cursor-pointer w-[11px] vw:w-[.5729vw]">
+        <div className="left-arrow cursor-pointer w-[11px] vw:w-[.5729vw]" role='button'>
           <Image
             src="/images/prev.svg"
             alt="Next"
@@ -107,7 +107,7 @@ export default function EventsSlider(props) {
           />
         </div>
 
-        <div className="right-arrow cursor-pointer w-[11px] vw:w-[.5729vw]">
+        <div className="right-arrow cursor-pointer w-[11px] vw:w-[.5729vw]" role='button'>
           <Image
             src="/images/next.svg"
             alt="Next"
