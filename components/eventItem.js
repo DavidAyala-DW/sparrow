@@ -1,19 +1,18 @@
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
-import SanityImage from "../sanity-image";
+import SanityImage from "./sanity-image";
 import SimpleBlockContent from '@/components/simple-block-content'
 
-export default function Event(props) {
+export default function EventItem({position, event}) {
 
   const {
+    image,
+    alt_text,
     title,
     description,
-    description2,
-    image,
-    position,
-    link,
-    dates
-  } = props;
+    date,
+    book_button_text,
+    book_button_link
+  } = event;
 
   return (
 
@@ -32,7 +31,7 @@ export default function Event(props) {
 
           <div className="w-full h-full">
             <div className="w-full h-full relative">
-              <SanityImage src={image} layout="fill" alt="Image" className="object-cover object-center" />
+              <SanityImage src={image} layout="fill" alt={alt_text} className="object-cover object-center" />
             </div>
           </div>
 
@@ -55,30 +54,22 @@ export default function Event(props) {
         </h2>
 
         <p className="font-normal text-base vw:text-[.8333vw] leading-[1.5] opacity-[.85] mb-5 vw:mb-[1.041666vw]">
-          {dates}
+          {date}
         </p>
 
         <div className="opacity-[.85] text-base vw:text-[.8333vw] w-full md:max-w-[500px] lg:max-w-[531px] vw:max-w-[27.656vw] leading-[1.5] font-normal">
           {
-            (description && !description2) && (
-              <p>
-              {description}
-              </p>              
-            )
-          }
-
-          {
-            (description2) && (
-              <SimpleBlockContent blocks={description2} />
+            (description) && (
+              <SimpleBlockContent blocks={description} />
             )
           }
         </div>
 
         {
-          link && (
-            <Link href={link?.url} passHref>
+          book_button_text && (
+            <Link href={book_button_link} passHref>
               <a className="mt-10 vw:mt-[2.0833] max-w-min font-[390] text-[#E7E3DA] text-base leading-[100%] px-3 py-2 border border-[#E7E3DA] transition-colors vw:text-[.9375vw] vw:leading-[1.388] tracking-[.05em] uppercase" >
-                {link?.title}
+                {book_button_text}
               </a>
             </Link>
           )
@@ -91,4 +82,3 @@ export default function Event(props) {
   )
 
 }
-
