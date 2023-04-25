@@ -25,7 +25,7 @@ export default function Menus(props) {
           {
             locations && locations.map(location => {
 
-              const {title, image, menus, slug, _key} = location;
+              const { title, image, menus, slug, _key } = location;        
 
               return ( 
 
@@ -58,10 +58,10 @@ export default function Menus(props) {
 
                         menus && menus.map(menu => {
 
-                          const {title, slug:slugMenu} = menu;
+                          const { _key, title, slug: slugMenu } = menu;
 
                           return (
-                            <Link href={`/menus/${slug?.current}?menu=${slugMenu?.current}`} passHref>
+                            <Link key={_key} href={`/menus/${slug?.current}?menu=${slugMenu?.current}`} passHref>
                               <a className="opacity-80 tracking-[.05em] uppercase text-lg leading-[25px] font-light underline pr-6 pb-4">
                                 {title}
                               </a>
