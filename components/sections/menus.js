@@ -35,12 +35,14 @@ export default function Menus(props) {
                     <div className="w-full h-full">
                       <div className="w-full h-full relative">
                         <Link href={`/locations/${slug?.current}`}>
-                          <SanityImage
-                            src={image}
-                            layout="fill"
-                            alt={title}
-                            className="object-cover cursor-pointer"
-                          />
+                          <a>
+                            <SanityImage
+                              src={image}
+                              layout="fill"
+                              alt={title}
+                              className="object-cover cursor-pointer"
+                            />
+                          </a>
                         </Link>
                       </div>
                     </div>
