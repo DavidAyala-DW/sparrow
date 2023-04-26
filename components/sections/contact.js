@@ -22,7 +22,7 @@ export default function Contact(props) {
   });
 
   useEffect(() => {
-    setActiveOption("inquiry");
+    setActiveOption("general_inquiry");
   }, []);
 
   const {
