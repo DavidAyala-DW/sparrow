@@ -7,7 +7,7 @@ import RenderSections from '@/components/render-sections'
 import { getSlugVariations, slugParamToPath } from '@/lib/urls'
 import { getClient } from '@/lib/sanity.server'
 import { usePreviewSubscription } from '@/lib/sanity'
-import { pageContentQuery } from '@/lib/queries'
+import { pageQuery } from '@/lib/queries'
 
 const ExitPreviewButton = dynamic(() =>
   import('@/components/exit-preview-button')
@@ -214,7 +214,9 @@ export const getStaticProps = async ({ params, preview = false }) => {
   const client = getClient(preview)
   const query =  groq`
     *[_type == "routesSparrow" && slug.current in $possibleSlugs][0]{
-      page -> {...}
+      page -> {
+        ${pageQuery}
+      }
     }
   ` 
   const queryParams = { possibleSlugs: getSlugVariations(slug) }
