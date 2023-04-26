@@ -99,9 +99,11 @@ export default function ImageWithText(props) {
           {title}
         </h2>
 
-        <div className="opacity-[.8] text-base vw:text-[.8333vw] leading-[1.5] font-normal md:max-w-[500px] lg:max-w-[507px] vw:max-w-[26.40625vw] w-full">
-          <SimpleBlockContent blocks={description} />
-        </div>
+        {description ? (
+          <div className="opacity-[.8] text-base vw:text-[.8333vw] leading-[1.5] font-normal md:max-w-[500px] lg:max-w-[507px] vw:max-w-[26.40625vw] w-full">
+            <SimpleBlockContent blocks={description} />
+          </div>
+        ) : null}
 
         {
           links && (
