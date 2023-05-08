@@ -143,39 +143,19 @@ export default function Header(props) {
         </div>
 
         <div className={`order order-1 md2:absolute md2:inset-x-0 md2:w-max md2:top-[14px] vw:top-[.7291vw] md2:m-auto md2:h-max select-none md2:order-2`}>
-
-          {
-            (!openModal && existHero) && (
-              <Link href="/" passHref>
-                <a onClick={() => setOpenModal(false)} className="block cursor-pointer w-[204px] vw:w-[10vw]">
-                  <Image
-                    src={"/images/logo.svg"}
-                    width={204}
-                    height={64}
-                    alt="logo.png"
-                    layout="responsive"
-                  />
-                </a>
-              </Link>
-            )
-          }
-
-          {
-            (openModal || !existHero) && (
-              <Link href="/" passHref>
-                <a onClick={() => setOpenModal(false)} className="block cursor-pointer w-[204px] vw:w-[10vw]">
-                  <Image
-                    src={"/images/logo.svg"}
-                    width={204}
-                    height={64}
-                    alt="logo.png"
-                    layout="responsive"
-                  />
-                </a>
-              </Link>
-            )
-          }
-
+          <Link href="/" passHref>
+            <a onClick={() => setOpenModal(false)} className="block cursor-pointer w-[170px] vw:w-[10vw]">
+              <Image
+                src="/images/logo.png"
+                width={170}
+                height={64}
+                quality={100}
+                alt="Sparrow Italia"
+                layout="responsive"
+                objectFit="contain"
+              />
+            </a>
+          </Link>
         </div>
 
         <div className="hidden md2:block order-3 select-none">
