@@ -67,17 +67,19 @@ export default function Footer(props) {
 
     <footer className="3xl:justify-between px-4 md:px-0 pb-[22px] md:pb-[36px] md2:pb-[50px] vw:pb-[2.604vw] md:max-w-[94.4%] w-full md:mx-auto flex flex-col md2:flex-row items-stretch">
 
-      <div className="mb-[42px] md2:mb-0 md2:mr-[13.333%] w-max">
+      <div className="shrink-0 selection:first:mb-[42px] md2:mb-0 md2:mr-[10%]">
 
         <Link href="/" passHref>
 
-          <a className="block w-[68px] vw:w-[3.541vw]">
+          <a>
             <Image
-              src={"/images/logoFooter.svg"}
-              width={68}
-              height={72}
-              alt="Logo"
-              layout="responsive"
+              src="/images/logo.png"
+              width={170}
+              height={80}
+              quality={100}
+              alt="Sparrow Italia"
+              objectFit="contain"
+              objectPosition="left top"
             />
           </a>
 
