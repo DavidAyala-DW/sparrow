@@ -7,7 +7,7 @@ import RenderSections from '@/components/render-sections'
 import { getSlugVariations, slugParamToPath } from '@/lib/urls'
 import { getClient } from '@/lib/sanity.server'
 import { usePreviewSubscription } from '@/lib/sanity'
-import { pageQuery } from '@/lib/queries'
+import { pageQueryPart } from '@/lib/queries'
 
 const ExitPreviewButton = dynamic(() =>
   import('@/components/exit-preview-button')
@@ -65,17 +65,6 @@ async function fulfillSectionQueries(page,internalLinks) {
   const sectionsWithQueryData = await Promise.all(
 
     page.page.content.map(async (section) => {
-    
-      if (section._type === 'eventsSlider') {
-        if (Array.isArray(section.events)) {
-          await Promise.all(section.events.map(async (event) => {
-            if(!event?._ref) return;
-            const queryData = await client.fetch(groq`*[_type == "eventSparrow" && _id == "${event._ref}" ][0]{...}`)
-            event.query = queryData;
-          }))
-        }
-      }
-
       if (section._type === 'sparrowEventList') {
         if (Array.isArray(section.events)) {
 
@@ -215,7 +204,7 @@ export const getStaticProps = async ({ params, preview = false }) => {
   const query =  groq`
     *[_type == "routesSparrow" && slug.current in $possibleSlugs][0]{
       page -> {
-        ${pageQuery}
+        ${pageQueryPart}
       }
     }
   ` 

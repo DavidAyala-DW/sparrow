@@ -73,7 +73,7 @@ export default function EventsSlider(props) {
 
             <SwiperSlide key={_key} className="flex flex-col w-full lg:!w-[86%] 3xl:!w-[64.7%]">
               <div className="w-full">
-                <Event event={event?.query ?? event} />
+                <Event event={event} />
               </div>              
             </SwiperSlide>
 
