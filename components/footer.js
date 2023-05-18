@@ -273,13 +273,13 @@ export default function Footer(props) {
             {
               footer_noble_link && (
                 <Link passHref href={footer_noble_link} >
-                  <a className="block w-[145px] !mb-[59px] md:!mb-0 vw:w-[7.55vw]">
+                  <a className="block !mb-[59px] md:!mb-0">
                     <Image
-                      src="/images/noble.svg"
-                      alt="Next"
+                      src="/images/noble33-logo.png"
+                      alt="Noble 33"
                       width={145}
-                      height={24}
-                      layout="responsive"
+                      height={30}
+                      objectFit="contain"
                     />
                   </a>
                 </Link>
