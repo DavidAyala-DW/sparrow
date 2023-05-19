@@ -25,45 +25,34 @@ async function sendEmail(body){
 
     console.log(body?.option);
 
-    if(body?.option == "press"){
+    let to;
 
-      await transporter.sendMail({
-        from: `"New Message from ${body?.name}" <${process.env.NODEMAILER_USER}>`, // sender address
-        to: "press@sparrowitalia.com", // list of receivers
-        subject: "New Message", // Subject line
-        html: html, // html body
-      });
-
-    }
-
-    if(body?.option == "general_inquiry" || body?.option == "reservations"){
-      const to =
+    if (body?.option == 'press') {
+      to = 'press@sparrowitalia.com';
+    } else if (
+      body?.option == 'general_inquiry' ||
+      body?.option == 'reservations'
+    ) {
+      to =
         body?.location === 'Mayfair, London'
           ? 'infoUK@sparrowitalia.com'
           : 'infoLA@sparrowitalia.com';
-
-      await transporter.sendMail({
-        from: `"New Message from ${body?.name}" <${process.env.NODEMAILER_USER}>`, // sender address
-        to, // list of receivers
-        subject: "New Message", // Subject line
-        html: html, // html body
-      });
-
+    } else if (body?.option == 'events') {
+      to = 'events@sparrowitalia.com';
     }
-    
-    if(body?.option == "events"){
-      await transporter.sendMail({
-        from: `"New Message from ${body?.name}" <${process.env.NODEMAILER_USER}>`, // sender address
-        to: "events@sparrowitalia.com", // list of receivers
-        subject: "New Message", // Subject line
-        html: html, // html body
-      });
-    }
+
+    await transporter.sendMail({
+      from: `"Messages (Sparrow - ${body.location})" <${process.env.NODEMAILER_USER}>`, // sender address
+      replyTo: body.email,
+      to, // list of receivers
+      subject: `Message from ${body.name}`, // Subject line
+      html, // html body
+    });
 
     return {
-      "status" : "successful",
-      "message": "The email has been sended"
-    }
+      status: 'successful',
+      message: 'The email was sent.',
+    };
 
   } catch (error) {
 
