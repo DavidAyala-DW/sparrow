@@ -35,7 +35,7 @@ async function sendEmail(body){
     ) {
       to =
         body?.location === 'Mayfair, London'
-          ? 'infoUK@sparrowitalia.com'
+          ? 'host@sparrowmayfair.com'
           : 'infoLA@sparrowitalia.com';
     } else if (body?.option == 'events') {
       to = 'events@sparrowitalia.com';
