@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import GTM from '@/components/scripts/gtm'
 import Userway from '@/components/scripts/userway'
-import '../styles/globals.scss'
+import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return (

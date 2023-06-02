@@ -1,56 +1,57 @@
+@import './fonts';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import "./fonts";
-
-body, *{
-  font-family: "Brandon Grotesque";
-  color: #EAEBEF;
+body,
+* {
+  font-family: 'Brandon Grotesque';
+  color: #eaebef;
 }
 
-h1,h2,h3,h4{
-  font-family: "Le Havre";
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Le Havre';
 }
 
-.portableText ul{
+.portableText ul {
   list-style: disc;
   padding-left: 22px;
 }
 
-.portableText a{
-  font-family: inherit!important; 
+.portableText a {
+  font-family: inherit !important;
   text-decoration: underline;
 }
 
-@media(min-width: 1440px){
-  .portableText ul{
+@media (min-width: 1440px) {
+  .portableText ul {
     padding-left: 1.527vw;
   }
 }
 
-.swiper-button-disabled{
-  opacity: 0.5!important;
+.swiper-button-disabled {
+  opacity: 0.5 !important;
 }
 
-.richtext-page{
-
-  ul{
+.richtext-page {
+  ul {
     @apply flex flex-col space-y-5;
   }
 
-  li{
+  li {
     @apply leading-[1.5];
   }
 
-  p{
+  p {
     @apply leading-[1.75];
   }
-
 }
 
-
-.remove-select-caret{
+.remove-select-caret {
   &::-ms-expand {
     display: none;
   }
