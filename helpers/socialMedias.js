@@ -1,15 +1,14 @@
-export const socialMediasIcons = {  
-  instagram:{
-    url: "/images/instagram.svg"
+export const socialMediasIcons = {
+  instagram: {
+    url: '/images/instagram.svg',
   },
-  facebook:{
-    url: "/images/facebook.svg"
+  facebook: {
+    url: '/images/facebook.svg',
   },
-  spotify:{
-    url: "/images/spotify.svg"
+  spotify: {
+    url: '/images/spotify.svg',
   },
-  soundCloud:{
-    url: "/images/soundCloud.svg"
+  soundCloud: {
+    url: '/images/soundCloud.svg',
   },
 }
-

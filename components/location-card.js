@@ -1,7 +1,7 @@
-import SanityImage from './sanity-image';
+import SanityImage from './sanity-image'
 
 export default function LocationCard(props) {
-  const { location, children } = props;
+  const { location, children } = props
 
   return (
     <div className="flex flex-col space-y-6">
@@ -19,12 +19,10 @@ export default function LocationCard(props) {
       </div>
 
       <div className="flex flex-col space-y-4">
-        <h2 className="text-2xl md2:text-[32px]">
-          {location.title}
-        </h2>
+        <h2 className="text-2xl md2:text-[32px]">{location.title}</h2>
 
         {children}
       </div>
     </div>
-  );
+  )
 }

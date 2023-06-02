@@ -1,10 +1,10 @@
-import Script from 'next/script';
+import Script from 'next/script'
 
 export default function GTM(props) {
-  const { id } = props;
+  const { id } = props
 
   if (!id) {
-    return null;
+    return null
   }
 
   return (
@@ -30,5 +30,5 @@ export default function GTM(props) {
         }}
       />
     </>
-  );
+  )
 }

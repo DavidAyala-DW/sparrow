@@ -1,7 +1,7 @@
-import Head from 'next/head';
-import '../styles/globals.scss';
-import GTM from '@/components/scripts/gtm';
-import Userway from '@/components/scripts/userway';
+import Head from 'next/head'
+import GTM from '@/components/scripts/gtm'
+import Userway from '@/components/scripts/userway'
+import '../styles/globals.scss'
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Component {...pageProps} />
     </>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp

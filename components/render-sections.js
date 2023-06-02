@@ -1,7 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import upperFirst from 'lodash-es/upperFirst'
-
+import PropTypes from 'prop-types'
+import React from 'react'
 import * as SectionComponents from './sections'
 
 function resolveSections(section) {
@@ -31,7 +30,6 @@ function RenderSections(props) {
           return null
         }
         return (
-          
           <div key={section._key}>
             <div>
               <SectionComponent {...section} />

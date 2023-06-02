@@ -1,9 +1,9 @@
-import Link from 'next/link';
-import SimpleBlockContent from '../simple-block-content';
-import LocationCard from '../location-card';
+import Link from 'next/link'
+import LocationCard from '../location-card'
+import SimpleBlockContent from '../simple-block-content'
 
 export default function GiftCards(props) {
-  const { title, description, locations } = props;
+  const { title, description, locations } = props
 
   return (
     <div>
@@ -33,5 +33,5 @@ export default function GiftCards(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }

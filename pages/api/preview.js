@@ -7,7 +7,7 @@ export default function handler(req, res) {
 
   // Check the secret and next parameters
   // This secret should only be known to this API route and the CMS
-  if (req.query.secret !== "test") {
+  if (req.query.secret !== 'test') {
     return res.status(401).json({ message: 'Invalid secret token' })
   }
 

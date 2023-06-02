@@ -1,8 +1,8 @@
-import React from 'react';
-import EventItem from '../eventItem';
+import React from 'react'
+import EventItem from '../eventItem'
 
 export default function SparrowEventList(props) {
-  const { events } = props;
+  const { events } = props
 
   return (
     <section className="flex flex-col w-full space-y-[120px]">
@@ -14,5 +14,5 @@ export default function SparrowEventList(props) {
         />
       ))}
     </section>
-  );
+  )
 }

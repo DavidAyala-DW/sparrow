@@ -1,1 +1,1 @@
-import socialMediasIcons from "./socialMedias"
+import socialMediasIcons from './socialMedias'

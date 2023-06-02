@@ -1,12 +1,10 @@
-import PropTypes from 'prop-types'
 import { PortableText } from '@portabletext/react'
-
+import PropTypes from 'prop-types'
 import EmbedHTML from './embed-html'
 import Figure from './figure'
 import ToggleText from './toggle-text'
 
 function SimpleBlockContent(props) {
-  
   const { blocks } = props
   if (!blocks) {
     console.error('Missing blocks')
@@ -14,7 +12,6 @@ function SimpleBlockContent(props) {
   }
 
   return (
-    
     <div className="portableText flex flex-col space-y-5">
       <PortableText
         value={blocks}
@@ -27,7 +24,6 @@ function SimpleBlockContent(props) {
         }}
       />
     </div>
-    
   )
 }
 
