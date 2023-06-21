@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo'
 import dynamic from 'next/dynamic'
 import Layout from '@/components/layout'
 import RenderSections from '@/components/render-sections'
-import { locationQuery } from '@/lib/queries'
+import { pageQueryPart } from '@/lib/queries'
 import { usePreviewSubscription } from '@/lib/sanity'
 import client from '@/lib/sanity-client'
 import { getClient } from '@/lib/sanity.server'
@@ -67,20 +67,6 @@ async function fulfillSectionQueries(page, slug, internalLinks) {
 
   const sectionsWithQueryData = await Promise.all(
     page.content.map(async (section) => {
-      if (section._type === 'eventsSlider') {
-        if (Array.isArray(section.events)) {
-          await Promise.all(
-            section.events.map(async (event) => {
-              if (!event?._ref) return
-              const queryData = await client.fetch(
-                groq`*[_type == "eventSparrow" && _id == "${event._ref}" ][0]{...}`
-              )
-              event.query = queryData
-            })
-          )
-        }
-      }
-
       if (section._type === 'privateEventsList') {
         if (Array.isArray(section.eventsList)) {
           await Promise.all(
@@ -207,12 +193,10 @@ export const getStaticProps = async ({ params, preview = false }) => {
   const client = getClient(preview)
   const query = groq`
     *[_type == "locationsSparrow" && slug.current in $possibleSlugs][0]{
-      _id,
-      title,
-      menus,
-      content
-  }
+      ${pageQueryPart}
+    }
   `
+
   const queryParams = { possibleSlugs: getSlugVariations(slug) }
   let data = await client.fetch(query, queryParams)
   let [siteSettings, menus, locations] = await Promise.all([

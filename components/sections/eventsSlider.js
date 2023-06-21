@@ -8,7 +8,6 @@ import SanityLink from '../sanityLink'
 
 export default function EventsSlider(props) {
   const { title, links, events } = props
-  // console.log(events)
 
   return (
     <section className="pl-4 md:pl-5 lg:pl-[2.777%] w-full flex flex-col pb-[74px] md:pb-[56px] vw:pb-[2.91666vw] relative">
