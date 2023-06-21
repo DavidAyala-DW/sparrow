@@ -42,7 +42,7 @@ export default function Reservations(props) {
                     </h2>
 
                     {reservation.description ? (
-                      <div className='font-light text-base vw:text-[0.9vw]'>
+                      <div className="font-light text-base vw:text-[0.9vw]">
                         <SimpleBlockContent blocks={reservation.description} />
                       </div>
                     ) : null}
