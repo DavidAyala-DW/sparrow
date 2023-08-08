@@ -211,7 +211,7 @@ export const getStaticProps = async ({ params, preview = false }) => {
   page.content = Array.isArray(page.reservationPageContent)
   ? [...page.reservationPageContent]
   : []
-  console.log(page)
+
   page = await fulfillSectionQueries(data, slug, menus)
   page.query = query
   page.queryParams = queryParams
