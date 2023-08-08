@@ -14,16 +14,20 @@ export default function Reservation(props) {
 
       <section className='px-6 md:px-0 md:max-w-[94.4%] 3xl:max-w-[95%] w-full mx-auto flex flex-col'>
          <div className="md:max-w-[680px] vw:max-w-[50%] mx-auto flex flex-col w-full">
-          <div className="aspect-h-1 aspect-w-[1.38] w-full relative mb-10 vw:mb-[2.08vw]">
-            <div className="inset-0 w-full h-full absolute flex flex-col">
-              <SanityImage
-                src={reservation_image}
-                layout="fill"
-                alt="Image"
-                className="object-cover object-center"
-              />
-            </div>
-          </div>
+          {
+            reservation_image && (
+              <div className="aspect-h-1 aspect-w-[1.38] w-full relative mb-10 vw:mb-[2.08vw]">
+                <div className="inset-0 w-full h-full absolute flex flex-col">
+                  <SanityImage
+                    src={reservation_image}
+                    layout="fill"
+                    alt="Image"
+                    className="object-cover object-center"
+                  />
+                </div>
+              </div>
+            )
+          }
 
           <h2 className='text-[36px] vw:text-[1.875vw] mb-5 vw:mb-[1.04vw]'>
             {reservation_title}
