@@ -59,7 +59,7 @@ export function ArticleLayout(props) {
           <h2 className="text-heading-sm mb-4 md:text-center lg:text-heading-md lg:mb-8">
             Keep Reading
           </h2>
-          <ArticleGrid articles={article.featuredArticles} />
+          <ArticleGrid articles={article.featuredArticles.slice(0, 3)} />
         </section>
       ) : null}
     </div>
