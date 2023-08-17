@@ -57,9 +57,11 @@ export default function EventItem({ position, event }) {
           {date}
         </p>
 
-        <div className="opacity-[.85] text-base vw:text-[.8333vw] w-full md:max-w-[500px] lg:max-w-[531px] vw:max-w-[27.656vw] leading-[1.5] font-normal">
-          {description && <SimpleBlockContent blocks={description} />}
-        </div>
+        {description && (
+          <div className="prose mx-auto opacity-80 md:prose-lg">
+            <SimpleBlockContent blocks={description} />
+          </div>
+        )}
 
         {book_button_text && (
           <Link href={book_button_link} passHref>

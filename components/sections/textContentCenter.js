@@ -69,8 +69,11 @@ export default function TextContentCenter(props) {
           `}
           >
             {description && !description2 && <p>{description}</p>}
-
-            {description2 && <SimpleBlockContent blocks={description2} />}
+            {description2 && (
+              <div className="prose md:prose-lg">
+                <SimpleBlockContent blocks={description2} />
+              </div>
+            )}
           </div>
         )}
 

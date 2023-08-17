@@ -51,9 +51,8 @@ export default function Event(props) {
           {dates}
         </p>
 
-        <div className="opacity-[.85] text-base vw:text-[.8333vw] w-full md:max-w-[500px] lg:max-w-[531px] vw:max-w-[27.656vw] leading-[1.5] font-normal">
+        <div className="prose opacity-80 md:prose-lg">
           {description && !description2 && <p>{description}</p>}
-
           {description2 && <SimpleBlockContent blocks={description2} />}
         </div>
 

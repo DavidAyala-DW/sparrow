@@ -9,7 +9,7 @@ export default function Richtext(props) {
         {title}
       </h1>
 
-      <div className=" md:max-w-[90%] lg:max-w-[65%] font-light mx-auto w-full text-lg vw:text-[.9375vw] leading-[21px] vw:leading-[1.1666]">
+      <div className="prose mx-auto md:prose-lg">
         <SimpleBlockContent blocks={text} />
       </div>
     </section>

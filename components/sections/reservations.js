@@ -41,11 +41,11 @@ export default function Reservations(props) {
                       {heading}
                     </h2>
 
-                    {reservation.description ? (
-                      <div className="font-light text-base vw:text-[0.9vw]">
+                    {reservation.description && (
+                      <div className="prose">
                         <SimpleBlockContent blocks={reservation.description} />
                       </div>
-                    ) : null}
+                    )}
 
                     <Link href={reservation_link} passHref>
                       <a className="mt-2 text-primary transition-colors hover:bg-primary max-w-max block hover:text-black font-avenir tracking-[0.05em] font-light text-base leading-[1] md2:text-lg md2:leading-[25px] uppercase opacity-80 py-2.5 px-[30px] border border-primary">

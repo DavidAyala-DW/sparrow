@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { useCallback, useEffect, useState } from 'react'
 import SimpleBlockContent from '@/components/simple-block-content'
 import SanityImage from './sanity-image'
 
@@ -40,9 +39,11 @@ export default function Event({ event }) {
             {date}
           </p>
 
-          <div className="font-normal text-base vw:text-[.8333vw] leading-[1.5] opacity-80 lg:max-w-[46.3vw]">
-            {description && <SimpleBlockContent blocks={description} />}
-          </div>
+          {description && (
+            <div className="prose mx-auto opacity-80 md:prose-lg">
+              <SimpleBlockContent blocks={description} />
+            </div>
+          )}
         </div>
 
         {book_button_text && book_button_link && (

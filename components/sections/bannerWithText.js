@@ -25,9 +25,7 @@ export default function BannerWithText(props) {
           {title}
         </h2>
 
-        <div
-          className={`font-normal text-base vw:text-base vw:text-[.8333vw] leading-[1.5] opacity-[.85] mb-10 vw:mb-[2.08333] md:max-w-[500px] lg:max-w-[517px] vw:max-w-[26.927vw]`}
-        >
+        <div className="prose mb-10">
           <SimpleBlockContent blocks={description} />
         </div>
 
