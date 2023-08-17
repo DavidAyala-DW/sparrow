@@ -31,7 +31,7 @@ export default function Event({ event }) {
 
       <div className="flex flex-col lg:justify-between h-full w-full">
         <div className="flex flex-col w-full mb-11 vw:mb-[2.291vw]">
-          <h3 className="text-[24px] lg:text-[32px] vw:text-[1.6666vw] leading-[33px] lg:leading-11 vw:leading-[1.375] font-light mb-2 vw:mb-[.41666vw]">
+          <h3 className="text-[24px] lg:text-[32px] vw:text-[1.6666vw] leading-[33px] lg:leading-11 vw:leading-[1.375] mb-2 vw:mb-[.41666vw]">
             {title}
           </h3>
 
@@ -51,7 +51,7 @@ export default function Event({ event }) {
             href={book_button_link}
             className="max-w-max flex items-center space-x-2 vw:space-x-[.41666vw] opacity-80"
           >
-            <p className="font-light text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.3889] tracking-[.05em] uppercase underline">
+            <p className="text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.3889] tracking-[.05em] uppercase underline">
               {book_button_text}
             </p>
 

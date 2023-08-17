@@ -21,7 +21,7 @@ export default function BannerWithText(props) {
       </div>
 
       <div className="flex flex-col px-4 md:px-10 lg:px-0 ">
-        <h2 className="text-[32px] vw:text-[1.666vw] font-light leading-[1.2] md:leading-11 vw:leading-[1.375] capitalize mb-6 3xl:mb-5 vw:mb-[1.0416vw]">
+        <h2 className="text-[32px] vw:text-[1.666vw] leading-[1.2] md:leading-11 vw:leading-[1.375] capitalize mb-6 3xl:mb-5 vw:mb-[1.0416vw]">
           {title}
         </h2>
 
@@ -30,7 +30,7 @@ export default function BannerWithText(props) {
         </div>
 
         <a
-          className="block uppercase text-lg vw:text-[.9375vw] font-light leading-[25px] vw:leading-[1.302] max-w-max tracking-[.05em] underline opacity-80"
+          className="block uppercase text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.302] max-w-max tracking-[.05em] underline opacity-80"
           href={learn_more.link}
         >
           {learn_more.title}

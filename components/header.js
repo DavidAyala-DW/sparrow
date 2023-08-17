@@ -213,7 +213,7 @@ export default function Header(props) {
                             onMouseLeave={handleMouseDown}
                             onMouseEnter={() => handleMouseOver(image)}
                             onClick={handleClick}
-                            className="block font-light tracking-[-.04em] text-[32px] md2:text-[55px] vw:text-[2.864vw] leading-[44px] md2:leading-[75px] vw:leading-[1.36]"
+                            className="block tracking-[-.04em] text-[32px] md2:text-[55px] vw:text-[2.864vw] leading-[44px] md2:leading-[75px] vw:leading-[1.36]"
                           >
                             {title}
                           </a>
@@ -228,7 +228,7 @@ export default function Header(props) {
                                 onClick={(e) => (
                                   e.preventDefault(), setIsMenuOpen(!isMenuOpen)
                                 )}
-                                className="block font-light tracking-[-.04em] text-[32px] md2:text-[55px] vw:text-[2.864vw] leading-[44px] md2:leading-[75px] vw:leading-[1.36]"
+                                className="block tracking-[-.04em] text-[32px] md2:text-[55px] vw:text-[2.864vw] leading-[44px] md2:leading-[75px] vw:leading-[1.36]"
                               >
                                 {title}
                               </a>
@@ -322,7 +322,7 @@ export default function Header(props) {
                         onMouseLeave={handleMouseDown}
                         onMouseEnter={() => handleMouseOver(image)}
                         onClick={handleClick}
-                        className="block font-light tracking-[-.04em] text-[32px] md2:text-[55px] vw:text-[2.864vw] leading-[44px] md2:leading-[75px] vw:leading-[1.36]"
+                        className="block tracking-[-.04em] text-[32px] md2:text-[55px] vw:text-[2.864vw] leading-[44px] md2:leading-[75px] vw:leading-[1.36]"
                       >
                         {title}
                       </a>
@@ -336,7 +336,7 @@ export default function Header(props) {
                   <Link href={reservationsButton?.link?.url}>
                     <a
                       onClick={() => setOpenModal(false)}
-                      className="block font-light tracking-[-.04em] text-[32px] md2:text-[55px] vw:text-[2.864vw] leading-[44px] md2:leading-[75px] vw:leading-[1.36] hover:text-body hover:bg-[#E7E3DA]"
+                      className="block tracking-[-.04em] text-[32px] md2:text-[55px] vw:text-[2.864vw] leading-[44px] md2:leading-[75px] vw:leading-[1.36] hover:text-body hover:bg-[#E7E3DA]"
                     >
                       {reservationsButton?.title}
                     </a>
@@ -354,7 +354,7 @@ export default function Header(props) {
                       return (
                         <span
                           key={_key}
-                          className="block text-[24px] vw:text-[1.25vw] leading-[1.6] font-light opacity-50 select-none"
+                          className="block text-[24px] vw:text-[1.25vw] leading-[1.6] opacity-50 select-none"
                         >
                           {title}
                         </span>
@@ -364,7 +364,7 @@ export default function Header(props) {
                       <Link href={link?.url} passHref key={_key}>
                         <a
                           onClick={handleClick}
-                          className="block text-[24px] vw:text-[1.25vw] leading-[1.6] font-light opacity-90"
+                          className="block text-[24px] vw:text-[1.25vw] leading-[1.6] opacity-90"
                         >
                           {title}
                         </a>

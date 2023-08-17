@@ -49,7 +49,7 @@ export default function EventItem({ position, event }) {
         }
         `}
       >
-        <h2 className="text-[32px] vw:text-[1.25vw] leading-11 vw:leading-[1.375] font-light mb-2 vw:mb-[.41666vw]">
+        <h2 className="text-[32px] vw:text-[1.25vw] leading-11 vw:leading-[1.375] mb-2 vw:mb-[.41666vw]">
           {title}
         </h2>
 

@@ -125,7 +125,7 @@ export default function ImageWithText(props) {
           </div>
         )}
 
-        <h2 className="font-light capitalize text-[32px] vw:text-[1.666vw] leading-[44px] vw:leading-[1.375] mb-[18px] vw:mb-[.9375vw]">
+        <h2 className="capitalize text-[32px] vw:text-[1.666vw] leading-[44px] vw:leading-[1.375] mb-[18px] vw:mb-[.9375vw]">
           {title}
         </h2>
 
@@ -138,7 +138,7 @@ export default function ImageWithText(props) {
         {links && (
           <SanityLink
             {...{ links }}
-            className="mt-10 text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.38888] tracking-[.05em] opacity-80 uppercase underline font-light vw:mt-[2.08333vw]"
+            className="mt-10 text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.38888] tracking-[.05em] opacity-80 uppercase underline vw:mt-[2.08333vw]"
           >
             {links?.title}
           </SanityLink>
@@ -185,7 +185,7 @@ export default function ImageWithText(props) {
                   href={`/menus/${props.slug}?menu=${current}`}
                   passHref
                 >
-                  <a className="block font-light text-lg vw:text-[.9375vw] md:pb-[11px] vw:pb-[.5729vw] md:pr-6 vw:pr-[1.25vw] leading-[25px] vw:leading-[1.3888] tracking-[.05em] underline uppercase opacity-80">
+                  <a className="block text-lg vw:text-[.9375vw] md:pb-[11px] vw:pb-[.5729vw] md:pr-6 vw:pr-[1.25vw] leading-[25px] vw:leading-[1.3888] tracking-[.05em] underline uppercase opacity-80">
                     {title}
                   </a>
                 </Link>
@@ -209,7 +209,7 @@ export default function ImageWithText(props) {
                   {!comming_soon && (
                     <Link href={`/menus/${current}?menu=dinner-menu`} passHref>
                       <a
-                        className={`block font-light text-lg vw:text-[.9375vw] md:pb-[11px] vw:pb-[.5729vw] md:pr-6
+                        className={`block text-lg vw:text-[.9375vw] md:pb-[11px] vw:pb-[.5729vw] md:pr-6
                             vw:pr-[1.25vw] leading-[25px] vw:leading-[1.3888] tracking-[.05em] underline uppercase
                             ${
                               comming_soon
@@ -224,7 +224,7 @@ export default function ImageWithText(props) {
 
                   {comming_soon && (
                     <div
-                      className={`block font-light text-lg vw:text-[.9375vw] md:pb-[11px] vw:pb-[.5729vw] md:pr-6
+                      className={`block text-lg vw:text-[.9375vw] md:pb-[11px] vw:pb-[.5729vw] md:pr-6
                           vw:pr-[1.25vw] leading-[25px] vw:leading-[1.3888] tracking-[.05em] underline uppercase
                           ${
                             comming_soon

@@ -8,7 +8,7 @@ export default function PrivateEventsList(props) {
   return (
     <>
       <section className="px-6 md:px-0 md:max-w-[94.4%] 3xl:max-w-[95%] w-full mx-auto flex flex-col pt-20 md2:pt-[162px] pb-6 md2:pb-[100px]">
-        <h1 className="font-light text-center text-[32px] md2:text-[48px] leading-[66px]">
+        <h1 className="text-center text-[32px] md2:text-[48px] leading-[66px]">
           {title}
         </h1>
 
@@ -48,7 +48,7 @@ export default function PrivateEventsList(props) {
                   <div className="flex flex-col space-y-4">
                     <Link href={`/private-events/${slug?.current}`} passHref>
                       <a className="block">
-                        <h2 className="text-2xl md2:text-[32px] cursor-pointer font-light md2:leading-11">
+                        <h2 className="text-2xl md2:text-[32px] cursor-pointer md2:leading-11">
                           {title}
                         </h2>
                       </a>

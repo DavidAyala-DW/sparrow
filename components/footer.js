@@ -83,7 +83,7 @@ export default function Footer(props) {
                 return (
                   <Link href={link?.url} passHref key={i}>
                     <a
-                      className={`text-[18px] w-max vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`}
+                      className={`text-[18px] w-max vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em]`}
                     >
                       {title}
                     </a>
@@ -96,7 +96,7 @@ export default function Footer(props) {
             {privacyPolicyHandle && (
               <Link href={privacyPolicyHandle?.link?.url} passHref>
                 <a
-                  className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`}
+                  className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em]`}
                 >
                   {privacyPolicyHandle?.title}
                 </a>
@@ -105,7 +105,7 @@ export default function Footer(props) {
 
             <Link href="/accessibility-statement" passHref>
               <a
-                className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`}
+                className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em]`}
               >
                 Accessibility Statement
               </a>
@@ -113,7 +113,7 @@ export default function Footer(props) {
 
             <Link href="/website-terms" passHref>
               <a
-                className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`}
+                className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em]`}
               >
                 Website Terms
               </a>
@@ -123,7 +123,7 @@ export default function Footer(props) {
 
         <div className="flex flex-col space-y-16 md2:space-y-[110px] vw:space-y-[5.729vw] justify-between w-full 3xl:w-[26.927vw]">
           <div className="flex flex-col space-y-6 md2:space-y-8 vw:space-y-[1.666vw]">
-            <h3 className="block font-brandom text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light">
+            <h3 className="block font-brandom text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em]">
               {newsletter_text ?? 'Newsletter'}
             </h3>
 
@@ -135,7 +135,7 @@ export default function Footer(props) {
               <fieldset className="flex pl-4 md2:pl-6 vw:pl-[1.25vw] pr-7 md2:pr-[14px] vw:pr-[.729vw] item-center space-x-5 vw:space-x-[1.0416vw] border-2 border-[rgba(234,_235,_239,_0.2)] py-3 vw:py-[.625vw]">
                 <input
                   className="text-base md2:text-lg vw:text-[.9375vw] bg-transparent outline-none w-full
-                  placeholder:text-[rgba(234,_235,_239,1)] md:placeholder:text-[rgba(234,_235,_239,_0.5)] leading-[1.5] font-light opacity-80"
+                  placeholder:text-[rgba(234,_235,_239,1)] md:placeholder:text-[rgba(234,_235,_239,_0.5)] leading-[1.5] opacity-80"
                   type="email"
                   name="email"
                   ref={email}
@@ -234,7 +234,7 @@ export default function Footer(props) {
               {privacyPolicyHandle && (
                 <Link href={privacyPolicyHandle?.link?.url} passHref>
                   <a
-                    className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`}
+                    className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em]`}
                   >
                     {privacyPolicyHandle?.title}
                   </a>
@@ -243,7 +243,7 @@ export default function Footer(props) {
 
               <Link href="/accessibility-statement" passHref>
                 <a
-                  className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`}
+                  className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em]`}
                 >
                   Accessibility Statement
                 </a>
@@ -251,7 +251,7 @@ export default function Footer(props) {
 
               <Link href="/website-terms" passHref>
                 <a
-                  className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em] font-light`}
+                  className={`text-[14px] vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[-.04em]`}
                 >
                   Website Terms
                 </a>

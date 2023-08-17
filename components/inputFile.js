@@ -4,7 +4,7 @@ export default function File({ className }) {
       className={`flex flex-col w-full space-y-2 md:space-y-1 vw:space-y-[.208vw] ${className}`}
     >
       <p
-        className={`block font-bold opacity-80 text-base md:text-[20px] vw:text-[1.0416vw] leading-[1.5] font-light`}
+        className={`block font-bold opacity-80 text-base md:text-[20px] vw:text-[1.0416vw] leading-[1.5]`}
       >
         Upload Attachment
       </p>
@@ -19,14 +19,14 @@ export default function File({ className }) {
       <label
         htmlFor="file"
         className="outline-none bg-transparent border-[.5px] border-[#EAEBEF]
-        w-full block py-[30px] vw:py-[1.5625vw] px-5 vw:px-[1.0416vw] opacity-80 text-base md:text-[20px] vw:text-[1.0416vw] leading-[1.5] font-light
+        w-full block py-[30px] vw:py-[1.5625vw] px-5 vw:px-[1.0416vw] opacity-80 text-base md:text-[20px] vw:text-[1.0416vw] leading-[1.5]
         placeholder:text-[#EAEBEF] resize-none cursor-pointer"
       >
-        <p className="text-base md:text-[20px] vw:text-[1.0416vw] leading-[1.5] opacity-80 font-light underline mb-1 vw:mb-[.208vw]">
+        <p className="text-base md:text-[20px] vw:text-[1.0416vw] leading-[1.5] opacity-80 underline mb-1 vw:mb-[.208vw]">
           Click here to upload attachment
         </p>
 
-        <p className="text-base md:text-[20px] vw:text-[1.0416vw] leading-[1.5] opacity-80 font-light">
+        <p className="text-base md:text-[20px] vw:text-[1.0416vw] leading-[1.5] opacity-80">
           supports .pdf, .doc, .docx, .rtf, .wp or .txt file
         </p>
       </label>

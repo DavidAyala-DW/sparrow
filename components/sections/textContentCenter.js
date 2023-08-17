@@ -36,7 +36,7 @@ export default function TextContentCenter(props) {
             titleSize == 'small' &&
             'text-[24px] lg:text-[32px] vw:text-[1.666vw] leading-[1.2] lg:leading-[44px] vw:leading-[1.375]'
           }
-          font-light mb-6 lg:mb-4 vw:mb-[.8333vw]
+          mb-6 lg:mb-4 vw:mb-[.8333vw]
         `}
         >
           {title}

@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import ArticleAuthor from '../articleAuthor'
 import ArticleGrid from '../articleGrid'
 import ArticleMeta from '../articleMeta'
@@ -10,7 +9,7 @@ export function ArticleLayout(props) {
   const { article } = props
 
   return (
-    <div className="px-4 pb-20">
+    <div className="px-4 pb-20 lg:pb-32">
       <article className="container max-w-[966px] mx-auto">
         <header className="pt-32 lg:pt-48">
           <div className="grid gap-6 mb-7 lg:mb-14">
@@ -40,7 +39,7 @@ export function ArticleLayout(props) {
           ) : null}
         </header>
 
-        <div className={clsx('pt-10 lg:pt-16')}>
+        <div className="pt-10 lg:pt-16">
           <div className="lg:relative lg:px-24">
             <div className="max-lg:hidden lg:absolute lg:top-0 lg:left-0 lg:bottom-0">
               <div className="lg:sticky lg:top-[160px] lg:shrink-0">
@@ -48,7 +47,7 @@ export function ArticleLayout(props) {
               </div>
             </div>
 
-            <div className="prose max-w-none lg:prose-h2:text-heading-md">
+            <div className="prose max-w-none lg:prose-lg">
               <SimpleBlockContent blocks={article.content} />
             </div>
           </div>

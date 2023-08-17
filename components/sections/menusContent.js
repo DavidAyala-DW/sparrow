@@ -34,7 +34,7 @@ export default function MenusContent(props) {
     <>
       {show && (
         <section className="px-4 md:px-0 md:max-w-[94.4%] w-full mx-auto flex flex-col pt-[120px] md:pt-[130px] lg:pt-[150px] 3xl:pt-[196px] vw:pt-[10.208vw]">
-          <h1 className="text-center font-light text-[40px] leading-[1.2] md:text-[48px] vw:text-[2.5vw] md:leading-[60px] vw:leading-[1.25]">
+          <h1 className="text-center text-[40px] leading-[1.2] md:text-[48px] vw:text-[2.5vw] md:leading-[60px] vw:leading-[1.25]">
             {title}
           </h1>
 
@@ -54,7 +54,7 @@ export default function MenusContent(props) {
                     key={_key}
                   >
                     <a
-                      className={`font-light text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[.05em] uppercase ${
+                      className={`text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] tracking-[.05em] uppercase ${
                         activeMenu?.slug?.current == menuSlug && 'underline'
                       }`}
                     >
@@ -73,7 +73,7 @@ export default function MenusContent(props) {
 
                 return (
                   <div key={_key} className="flex flex-col items-center">
-                    <h2 className="text-[24px] vw:text-[1.25vw] leading-[33px] vw:leading-[.75] font-light text-center">
+                    <h2 className="text-[24px] vw:text-[1.25vw] leading-[33px] vw:leading-[.75] text-center">
                       {title}
                     </h2>
 
