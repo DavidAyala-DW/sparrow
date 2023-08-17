@@ -42,8 +42,9 @@ export default function TextContentCenter(props) {
           {title}
         </h2>
 
-        <div
-          className={`
+        {(description || description2) && (
+          <div
+            className={`
           ${
             mobileAlignment && mobileAlignment == 'left'
               ? 'text-left md:text-center'
@@ -66,11 +67,12 @@ export default function TextContentCenter(props) {
             'lg:max-w-[678px] vw:max-w-[35.3125vw]'
           }
           `}
-        >
-          {description && !description2 && <p>{description}</p>}
+          >
+            {description && !description2 && <p>{description}</p>}
 
-          {description2 && <SimpleBlockContent blocks={description2} />}
-        </div>
+            {description2 && <SimpleBlockContent blocks={description2} />}
+          </div>
+        )}
 
         {learn_more && (
           <a

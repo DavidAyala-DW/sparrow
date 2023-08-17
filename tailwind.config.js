@@ -47,6 +47,51 @@ module.exports = {
         },
       ],
     },
+    typography: () => ({
+      DEFAULT: {
+        css: {
+          '--tw-prose-body': 'inherit',
+          '--tw-prose-headings': 'inherit',
+          '--tw-prose-links': 'inherit',
+          '--tw-prose-bold': 'inherit',
+          '--tw-prose-counters': 'inherit',
+          '--tw-prose-bullets': 'inherit',
+          '--tw-prose-quotes': 'inherit',
+          color: '#F3EDE2',
+          'h1, h2, h3, h4, h5': {
+            fontWeight: '400',
+            color: '#F3EDE2',
+            '&:first-child': {
+              marginTop: 0,
+            },
+          },
+          p: {
+            '&:first-child': {
+              marginTop: 0,
+            },
+            '&:last-child': {
+              marginBottom: 0,
+            },
+          },
+          blockquote: {
+            display: 'flex',
+            gap: '0.8em',
+            padding: 0,
+            border: 0,
+            fontSize: '1.1em',
+            fontStyle: 'normal',
+            '&::before': {
+              content: '"“"',
+              fontSize: '3em',
+              lineHeight: 1.25,
+            },
+          },
+          '> ol > li > ol': {
+            listStyle: 'lower-alpha',
+          },
+        },
+      },
+    }),
     screens: {
       sm: '480px',
       sm2: '580px',
@@ -65,5 +110,8 @@ module.exports = {
   corePlugins: {
     aspectRatio: false,
   },
-  plugins: [require('@tailwindcss/aspect-ratio')],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography'),
+  ],
 }
