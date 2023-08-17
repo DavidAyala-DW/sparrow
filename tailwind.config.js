@@ -17,6 +17,36 @@ module.exports = {
         brandom: ['"Brandon Grotesque"', 'sans-serif'],
       },
     },
+    fontSize: {
+      'heading-xl': [
+        '50px',
+        {
+          lineHeight: '1.2em',
+          fontWeight: '400',
+        },
+      ],
+      'heading-lg': [
+        '36px',
+        {
+          lineHeight: '1.2em',
+          fontWeight: '400',
+        },
+      ],
+      'heading-md': [
+        '32px',
+        {
+          lineHeight: '1.2em',
+          fontWeight: '400',
+        },
+      ],
+      'heading-sm': [
+        '24px',
+        {
+          lineHeight: '1.2em',
+          fontWeight: '400',
+        },
+      ],
+    },
     screens: {
       sm: '480px',
       sm2: '580px',

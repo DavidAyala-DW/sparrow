@@ -4,17 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
-body,
-* {
-  font-family: 'Brandon Grotesque';
-  color: #eaebef;
-}
+@layer base {
+  :root {
+    @apply font-brandom text-primary antialiased;
+  }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: 'Le Havre';
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-havre;
+  }
 }
 
 .portableText ul {

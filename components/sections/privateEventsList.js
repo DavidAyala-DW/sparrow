@@ -12,7 +12,7 @@ export default function PrivateEventsList(props) {
           {title}
         </h1>
 
-        <div className=" font-libreBaskerville text-base max-w-[568px] mx-auto font-normal leading-6 text-center ">
+        <div className="font-havre text-base max-w-[568px] mx-auto font-normal leading-6 text-center ">
           {description}
         </div>
       </section>

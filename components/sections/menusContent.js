@@ -92,13 +92,13 @@ export default function MenusContent(props) {
                               key={_key}
                               className="flex flex-col items-center space-y-2 vw:space-y-[.416vw]"
                             >
-                              <h3 className="font-normal font-libreBaskerville text-lg vw:text-[.9375vw] text-center leading-[22px] vw:leading-[1.222] uppercase">
+                              <h3 className="font-normal font-havre text-lg vw:text-[.9375vw] text-center leading-[22px] vw:leading-[1.222] uppercase">
                                 {title}
                               </h3>
 
                               {description && (
                                 <div
-                                  className={`text-center text-lg vw:text-[.9375vw] leading-[22px] vw:leading-[1.222] italic font-libreBaskerville mx-auto opacity-[.85]
+                                  className={`text-center text-lg vw:text-[.9375vw] leading-[22px] vw:leading-[1.222] italic font-havre mx-auto opacity-[.85]
                                              ${
                                                description_size
                                                  ? descriptionSizes[
