@@ -16,82 +16,94 @@ module.exports = {
         havre: ['"Le Havre"', 'sans-serif'],
         brandom: ['"Brandon Grotesque"', 'sans-serif'],
       },
-    },
-    fontSize: {
-      'heading-xl': [
-        '50px',
-        {
-          lineHeight: '1.2em',
-          fontWeight: '400',
-        },
-      ],
-      'heading-lg': [
-        '36px',
-        {
-          lineHeight: '1.2em',
-          fontWeight: '400',
-        },
-      ],
-      'heading-md': [
-        '32px',
-        {
-          lineHeight: '1.2em',
-          fontWeight: '400',
-        },
-      ],
-      'heading-sm': [
-        '24px',
-        {
-          lineHeight: '1.2em',
-          fontWeight: '400',
-        },
-      ],
-    },
-    typography: () => ({
-      DEFAULT: {
-        css: {
-          '--tw-prose-body': 'inherit',
-          '--tw-prose-headings': 'inherit',
-          '--tw-prose-links': 'inherit',
-          '--tw-prose-bold': 'inherit',
-          '--tw-prose-counters': 'inherit',
-          '--tw-prose-bullets': 'inherit',
-          '--tw-prose-quotes': 'inherit',
-          color: '#F3EDE2',
-          'h1, h2, h3, h4, h5': {
+      fontSize: {
+        'heading-xl': [
+          '50px',
+          {
+            lineHeight: '1.2em',
             fontWeight: '400',
+          },
+        ],
+        'heading-lg': [
+          '36px',
+          {
+            lineHeight: '1.2em',
+            fontWeight: '400',
+          },
+        ],
+        'heading-md': [
+          '32px',
+          {
+            lineHeight: '1.2em',
+            fontWeight: '400',
+          },
+        ],
+        'heading-sm': [
+          '24px',
+          {
+            lineHeight: '1.2em',
+            fontWeight: '400',
+          },
+        ],
+      },
+      typography: () => ({
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': 'inherit',
+            '--tw-prose-headings': 'inherit',
+            '--tw-prose-links': 'inherit',
+            '--tw-prose-bold': 'inherit',
+            '--tw-prose-counters': 'inherit',
+            '--tw-prose-bullets': 'inherit',
+            '--tw-prose-quotes': 'inherit',
             color: '#F3EDE2',
-            '&:first-child': {
-              marginTop: 0,
+            'h1, h2, h3, h4, h5': {
+              fontWeight: '400',
+              lineHeight: 1.2,
+              '&:first-child': {
+                marginTop: 0,
+              },
             },
-          },
-          p: {
-            '&:first-child': {
-              marginTop: 0,
+            h1: {
+              fontSize: 50,
             },
-            '&:last-child': {
-              marginBottom: 0,
+            h2: {
+              fontSize: 36,
             },
-          },
-          blockquote: {
-            display: 'flex',
-            gap: '0.8em',
-            padding: 0,
-            border: 0,
-            fontSize: '1.1em',
-            fontStyle: 'normal',
-            '&::before': {
-              content: '"“"',
-              fontSize: '3em',
-              lineHeight: 1.25,
+            h3: {
+              fontSize: 32,
             },
-          },
-          '> ol > li > ol': {
-            listStyle: 'lower-alpha',
+            h4: {
+              fontSize: 24,
+            },
+            p: {
+              '&:first-child': {
+                marginTop: 0,
+              },
+              '&:last-child': {
+                marginBottom: 0,
+              },
+            },
+            blockquote: {
+              display: 'flex',
+              gap: '0.8em',
+              padding: 0,
+              border: 0,
+              fontSize: '1.1em',
+              fontStyle: 'normal',
+              '&::before': {
+                content: '"“"',
+                fontSize: '3em',
+                lineHeight: 1.25,
+              },
+            },
+            '> ol > li > ol': {
+              listStyle: 'lower-alpha',
+            },
           },
         },
-      },
-    }),
+      }),
+    },
     screens: {
       sm: '480px',
       sm2: '580px',

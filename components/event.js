@@ -40,7 +40,7 @@ export default function Event({ event }) {
           </p>
 
           {description && (
-            <div className="prose mx-auto opacity-80 md:prose-lg">
+            <div className="prose opacity-80 md:prose-lg">
               <SimpleBlockContent blocks={description} />
             </div>
           )}
