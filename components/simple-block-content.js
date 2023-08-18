@@ -17,7 +17,7 @@ function SimpleBlockContent(props) {
       components={{
         types: {
           embedHTML: EmbedHTML,
-          figure: Figure,
+          'sanity.imageAsset': ({ value }) => <Figure {...value} />,
           toggleText: ToggleText,
         },
       }}
