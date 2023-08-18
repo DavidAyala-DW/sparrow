@@ -1,13 +1,8 @@
+import Link from 'next/link'
 import SanityImage from '../sanity-image'
 
 export default function Reservation(props) {
-  const {
-    reservation_links,
-    reservation_title,
-    title,
-    subtitle,
-    reservation_image,
-  } = props
+  const { reservation_links, title, subtitle } = props
 
   return (
     <>
@@ -23,33 +18,53 @@ export default function Reservation(props) {
           {Array.isArray(reservation_links) &&
             reservation_links.map((reservation) => {
               return (
-                <div className="flex flex-col" key={reservation?._key}>
-                  {reservation.image && (
+                <div
+                  className="flex flex-col justify-between"
+                  key={reservation?._key}
+                >
+                  <div className="flex flex-col">
+                    {reservation.image && (
+                      <a
+                        href={reservation.link}
+                        className="aspect-h-1 aspect-w-[1.10] w-full relative mb-6 md:mb-10 vw:mb-[2.08vw]"
+                      >
+                        <div className="inset-0 w-full h-full absolute flex flex-col">
+                          <SanityImage
+                            src={reservation.image}
+                            layout="fill"
+                            alt="Image"
+                            className="object-cover object-center"
+                          />
+                        </div>
+                      </a>
+                    )}
+                    
                     <a
                       href={reservation.link}
-                      className="aspect-h-1 aspect-w-[1.10] w-full relative mb-6 md:mb-10 vw:mb-[2.08vw]"
+                      className="text-lg vw:text-[.9375vw] tracking-[.9px] underline uppercase mb-[22px] vw:mb-[1.14vw]"
                     >
-                      <div className="inset-0 w-full h-full absolute flex flex-col">
-                        <SanityImage
-                          src={reservation.image}
-                          layout="fill"
-                          alt="Image"
-                          className="object-cover object-center"
-                        />
-                      </div>
+                      {reservation.text}
                     </a>
-                  )}
 
-                  <a
-                    href={reservation.link}
-                    className="text-lg vw:text-[.9375vw] tracking-[.9px] underline uppercase mb-[22px] vw:mb-[1.14vw]"
-                  >
-                    {reservation.text}
-                  </a>
-
-                  <div className="text-lg leading-[1.5] tracking-[-0.72px] vw:text-[.9375vw]">
-                    {reservation?.description}
+                    <div className="text-lg leading-[1.5] tracking-[-0.72px] vw:text-[.9375vw]">
+                      {reservation?.description}
+                    </div>
                   </div>
+
+                  {Array.isArray(reservation.menus_array) &&
+                    reservation.menus_array.length > 0 && (
+                      <div className="flex items-center flex-wrap mt-8 gap-4">
+                        {reservation.menus_array.map((menu) => {
+                          return (
+                            <Link href={menu?.link} key={menu?._key}>
+                              <a passHred className="uppercase underline">
+                                {menu?.text}
+                              </a>
+                            </Link>
+                          )
+                        })}
+                      </div>
+                    )}
                 </div>
               )
             })}
