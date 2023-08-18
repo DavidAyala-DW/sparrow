@@ -1,36 +1,20 @@
-import PropTypes from 'prop-types'
-import React from 'react'
 import SanityImage from './sanity-image'
 
-function Figure({ node }) {
-  const { alt, caption, asset } = node
+export default function Figure(props) {
+  const { caption, asset } = props
+
   if (!asset) {
-    return undefined
+    return null
   }
 
   return (
     <figure>
-      <SanityImage src={asset} alt={alt} />
+      <SanityImage src={asset} />
       {caption && (
         <figcaption>
-          <div>
-            <div>
-              <p>{caption}</p>
-            </div>
-          </div>
+          <p>{caption}</p>
         </figcaption>
       )}
     </figure>
   )
 }
-
-Figure.propTypes = {
-  node: PropTypes.shape({
-    alt: PropTypes.string,
-    caption: PropTypes.string,
-    asset: PropTypes.shape({
-      _ref: PropTypes.string,
-    }),
-  }),
-}
-export default Figure
