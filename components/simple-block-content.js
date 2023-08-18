@@ -12,18 +12,16 @@ function SimpleBlockContent(props) {
   }
 
   return (
-    <div className="portableText flex flex-col space-y-5">
-      <PortableText
-        value={blocks}
-        components={{
-          types: {
-            embedHTML: EmbedHTML,
-            figure: Figure,
-            toggleText: ToggleText,
-          },
-        }}
-      />
-    </div>
+    <PortableText
+      value={blocks}
+      components={{
+        types: {
+          embedHTML: EmbedHTML,
+          figure: Figure,
+          toggleText: ToggleText,
+        },
+      }}
+    />
   )
 }
 

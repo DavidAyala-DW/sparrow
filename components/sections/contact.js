@@ -80,7 +80,7 @@ export default function Contact(props) {
 
   return (
     <section className="px-4 md:px-0 md:max-w-[94.4%] pt-[140px] md:pt-[189px] vw:pt-[9.843vw] w-full mx-auto flex flex-col">
-      <h1 className="text-[48px] vw:text-[2.5vw] font-light leading-[66px] vw:leading-[1.375] text-center mb-6 vw:mb-[1.25vw]">
+      <h1 className="text-[48px] vw:text-[2.5vw] leading-[66px] vw:leading-[1.375] text-center mb-6 vw:mb-[1.25vw]">
         {title}
       </h1>
 
@@ -203,7 +203,7 @@ export default function Contact(props) {
                 />
               </svg>
 
-              <p className="text-primary font-light text-[18px] leading-[25px] uppercase opacity-80 font-avenir">
+              <p className="text-primary text-[18px] leading-[25px] uppercase opacity-80 font-avenir">
                 Message has been sent
               </p>
             </div>

@@ -5,9 +5,8 @@ export default function Newsletter(props) {
 
   const titleOptions = {
     normal:
-      'text-[32px] vw:text-[1.666vw] leading-[44px] vw:leading-[1.375] font-light mb-6 vw:mb-[1.25vw] ',
-    large:
-      'text-[48px] vw:text-[2.5vw] leading-[1.2] font-light mb-4 vw:mb-[.8333vw]',
+      'text-[32px] vw:text-[1.666vw] leading-[44px] vw:leading-[1.375] mb-6 vw:mb-[1.25vw] ',
+    large: 'text-[48px] vw:text-[2.5vw] leading-[1.2] mb-4 vw:mb-[.8333vw]',
   }
 
   const descriptionOptions = {
@@ -42,7 +41,7 @@ export default function Newsletter(props) {
           <input
             type="text"
             placeholder={placeholder}
-            className="outline-none w-full font-light bg-transparent text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] opacity-80 placeholder:opacity-80 placeholder:text-[#EAEBEF]"
+            className="outline-none w-full bg-transparent text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.3888] opacity-80 placeholder:opacity-80 placeholder:text-[#EAEBEF]"
           />
 
           <button type="submit" className="w-[26px] vw:w-[1.354vw]">

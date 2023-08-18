@@ -22,7 +22,7 @@ export default function Detail({ detail }) {
         </div>
       </div>
 
-      <h3 className="text-[32px] vw:text-[1.666vw] leading-[44px] vw:leading-[1.375] font-light mb-4 md:mb-6">
+      <h3 className="text-[32px] vw:text-[1.666vw] leading-[44px] vw:leading-[1.375] mb-4 md:mb-6">
         {title}
       </h3>
 

@@ -12,7 +12,7 @@ export default function EventsSlider(props) {
   return (
     <section className="pl-4 md:pl-5 lg:pl-[2.777%] w-full flex flex-col pb-[74px] md:pb-[56px] vw:pb-[2.91666vw] relative">
       <div className="flex flex-col w-full mb-8 vw:mb-[1.6666vw]">
-        <h2 className="text-[32px] md:text-[48px] vw:text-[2.5vw] leading-11 md:leading-[66px] vw:leading-[1.375] font-light">
+        <h2 className="text-[32px] md:text-[48px] vw:text-[2.5vw] leading-11 md:leading-[66px] vw:leading-[1.375]">
           {title}
         </h2>
 
@@ -20,7 +20,7 @@ export default function EventsSlider(props) {
           <SanityLink
             {...{ links }}
             className="mt-2 vw:mt-[.416vw] text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.38888]
-              tracking-[.05em] opacity-80 uppercase underline font-light lg:hidden"
+              tracking-[.05em] opacity-80 uppercase underline lg:hidden"
           >
             {links?.title}
           </SanityLink>
@@ -75,7 +75,7 @@ export default function EventsSlider(props) {
         <SanityLink
           {...{ links }}
           className="mt-10 vw:mt-[2.0833vw] text-lg vw:text-[.9375vw] leading-[25px] vw:leading-[1.38888]
-              tracking-[.05em] opacity-80 uppercase underline font-light hidden lg:block"
+              tracking-[.05em] opacity-80 uppercase underline hidden lg:block"
         >
           {links?.title}
         </SanityLink>

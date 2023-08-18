@@ -150,7 +150,7 @@ function Layout(props) {
         {reservationsButton && (
           <Link passHref href={reservationsButton?.link?.url}>
             <a className="fixed bottom-0 inset-x-0 w-full md:hidden z-[5] bg-body border-t border-[#EAEBEF] py-[13px] hover:text-body hover:bg-[#E7E3DA]">
-              <p className="text-center text-[#BDBEC1] opacity-80  uppercase tracking-[0.05em] text-base font-light leading-[22px] w-full !font-brandom">
+              <p className="text-center text-[#BDBEC1] opacity-80  uppercase tracking-[0.05em] text-base leading-[22px] w-full !font-brandom">
                 {reservationsButton?.title}
               </p>
             </a>

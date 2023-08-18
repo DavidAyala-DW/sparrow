@@ -6,9 +6,7 @@ export default function ContactLocations(props) {
   return (
     <>
       <section className="px-6 md:px-0 md:max-w-[94.4%] 3xl:max-w-[95%] w-full mx-auto flex flex-col pt-[162px] pb-[72px]">
-        <h1 className="font-light text-center text-[48px] leading-[66px]">
-          {title}
-        </h1>
+        <h1 className="text-center text-[48px] leading-[66px]">{title}</h1>
       </section>
 
       <section
@@ -37,13 +35,11 @@ export default function ContactLocations(props) {
                   </div>
 
                   <div className="flex flex-col space-y-4">
-                    <h2 className="text-[32px] font-light leading-11">
-                      {title}
-                    </h2>
+                    <h2 className="text-[32px] leading-11">{title}</h2>
 
                     <div className="flex flex-col md:flex-row md:items-center md:flex-wrap max-w-[500px]">
                       <Link passHref href={contactRoute?.current}>
-                        <a className="opacity-80 tracking-[.05em] uppercase text-lg leading-[25px] font-light underline pr-6 pb-4">
+                        <a className="opacity-80 tracking-[.05em] uppercase text-lg leading-[25px] underline pr-6 pb-4">
                           CONTACT
                         </a>
                       </Link>

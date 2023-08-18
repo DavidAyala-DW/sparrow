@@ -36,14 +36,15 @@ export default function TextContentCenter(props) {
             titleSize == 'small' &&
             'text-[24px] lg:text-[32px] vw:text-[1.666vw] leading-[1.2] lg:leading-[44px] vw:leading-[1.375]'
           }
-          font-light mb-6 lg:mb-4 vw:mb-[.8333vw]
+          mb-6 lg:mb-4 vw:mb-[.8333vw]
         `}
         >
           {title}
         </h2>
 
-        <div
-          className={`
+        {(description || description2) && (
+          <div
+            className={`
           ${
             mobileAlignment && mobileAlignment == 'left'
               ? 'text-left md:text-center'
@@ -66,11 +67,15 @@ export default function TextContentCenter(props) {
             'lg:max-w-[678px] vw:max-w-[35.3125vw]'
           }
           `}
-        >
-          {description && !description2 && <p>{description}</p>}
-
-          {description2 && <SimpleBlockContent blocks={description2} />}
-        </div>
+          >
+            {description && !description2 && <p>{description}</p>}
+            {description2 && (
+              <div className="prose md:prose-lg">
+                <SimpleBlockContent blocks={description2} />
+              </div>
+            )}
+          </div>
+        )}
 
         {learn_more && (
           <a
